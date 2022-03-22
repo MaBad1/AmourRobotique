@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Beauf.cpp" />
     <ClCompile Include="Bourrin.cpp" />
+    <ClCompile Include="Objet.cpp" />
     <ClCompile Include="Personnage.cpp" />
     <ClCompile Include="Romantique.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -148,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="Beauf.h" />
     <ClInclude Include="Bourrin.h" />
+    <ClInclude Include="Objet.h" />
     <ClInclude Include="Personnage.h" />
     <ClInclude Include="Romantique.h" />
   </ItemGroup>
