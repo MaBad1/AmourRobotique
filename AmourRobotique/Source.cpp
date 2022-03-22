@@ -60,7 +60,7 @@ int main() {
 	Personnage p3("Giovan", 200, 200, 100, false,5);
 
 	Personnage p4("Valentine", 200, 200, 100, false,5);
-	Personnage p5("Hélene", 200, 200, 100, false,5);
+	Personnage p5("Helene", 200, 200, 100, false,5);
 	Personnage p6("Manon", 200, 200, 100, false,5);
 
 
@@ -150,8 +150,7 @@ int main() {
 
 
 		srand(time(NULL));
-		cout << 1 + rand() % 2 << endl;
-		choixEnemie = 1 + rand() % 2;
+		choixEnemie = 1 + rand() % 3;
 		cout << endl << "---" << p4.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
 		if (p4.getKo() == false) {
 			if (choixEnemie == 1) {
@@ -165,7 +164,7 @@ int main() {
 				cout << "ATTACK Forte" << endl;
 			}
 		}
-		choixEnemie = 1 + rand() % 2;
+		choixEnemie = 1 + rand() % 3;
 		cout << endl << "---" << p5.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
 		if (p5.getKo() == false) {
 			if (choixEnemie == 1) {
@@ -179,7 +178,7 @@ int main() {
 				cout << "ATTACK Forte" << endl;
 			}
 		}
-		choixEnemie = 1 + rand() % 2;
+		choixEnemie = 1 + rand() % 3;
 		cout << endl << "---" << p6.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
 		if (p6.getKo() == false) {
 			if (choixEnemie == 1) {
