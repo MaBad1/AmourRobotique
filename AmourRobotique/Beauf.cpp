@@ -24,13 +24,46 @@ int Beauf::getLourdeur() const
 
 void Beauf::setLourdeur(int l)
 {
-	if (l < 0 || l > 50)
+	if (l < 0 || l > 100)
 	{
 		lourdeur = 0;
 		cout << "Unacceptable Lourding !" << endl;
 	}
 	else {
 		lourdeur = l;
+	}
+}
+
+void Beauf::disquetteBeaufL(Enemy& enemy)
+{
+	if (getLourdeur() == 100) {
+		cout << "C'est l'histoire du mec qui bouffe le cul d'une pute !" << endl;	
+	}
+	else {
+		setFlirt(getFlirt() - 50);
+		int bonus = getLourdeur() + 5;
+	}
+}
+
+void Beauf::disquetteBeaufM(Enemy& enemy)
+{
+	if (getLourdeur() == 100) {
+		cout << "C'est l'histoire du mec qui bouffe le cul d'une pute !" << endl;
+	}
+	else {
+		setLourdeur(getLourdeur() - 50);
+		int bonus = getFlirt() + 25;
+	}
+}
+
+void Beauf::disquetteBeaufXL(Enemy& enemy)
+{
+	if (getLourdeur() == 100) {
+		cout << "C'est l'histoire du mec qui bouffe le cul d'une pute !" << endl;
+	}
+	else {
+		setLourdeur(getLourdeur() - 50);
+		int bonus = getFlirt() + 25;
 	}
 }
 
@@ -59,17 +92,6 @@ void Beauf::use(Objet o)
 				}
 			}
 		}
-	}
-}
-
-void Beauf::disquetteBeauf()
-{
-	if (getLourdeur() == 50) {
-		cout << "C'est l'histoire du mec qui bouffe le cul d'une pute !" << endl;
-	}
-	else {
-		setLourdeur(getLourdeur() - 50);
-		int bonus = getFlirt() + 25;
 	}
 }
 

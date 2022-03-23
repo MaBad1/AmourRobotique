@@ -124,9 +124,10 @@ bool Personnage::operator<(Personnage& target)
 ostream& operator<<(ostream& os, Personnage const& p)
 {
 	os << "--- " << p.getName() << " ---" << endl;
-	os << "Health : " << p.getHealth() << endl;
-	os << "Flirt : " << p.getFlirt() << endl;
-	os << "Ego : " << p.getEgo() << endl;
+	os << "Nombre de vie : " << p.getHealth() << endl;
+	os << "Ego(Vie) : " << p.getEgo() << endl;
+	os << "Flirt(Atk) : " << p.getFlirt() << endl;
+	
 
 	return os;
 

@@ -10,10 +10,10 @@ class Personnage
 private:
 
 	string name;
-	int health;
-	int flirt;
-	int ego;
-	bool ko;
+	int health;//Nombre de revive
+	int flirt;//L'attaque des adversaires
+	int ego;//Barre de vie
+	bool ko;//En Vie ou mort
 
 
 public:
