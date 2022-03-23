@@ -1,4 +1,5 @@
 #include "Personnage.h"
+#include "Enemy.h"
 
 
 
@@ -16,6 +17,10 @@ public:
 	//getter/setter
 	int getForceur() const;
 	void setForceur(int fo);
+
+	void disquetteBourrinL(Enemy& enemy);
+	void disquetteBourrinM(Enemy& enemy);
+	void disquetteBourrinXL(Enemy& enemy);
 
 	//méthode pour utiliser les objets dont l'utilisation dépend de cette classe.
 	void use(Objet o);

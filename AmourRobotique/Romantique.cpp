@@ -34,6 +34,18 @@ void Romantique::setSensibilite(int s)
 	}
 }
 
+void Romantique::disquetteRomantiqueL(Enemy& enemy)
+{
+}
+
+void Romantique::disquetteRomantiqueM(Enemy& enemy)
+{
+}
+
+void Romantique::disquetteRomantiqueXL(Enemy& enemy)
+{
+}
+
 //Méthode pour utiliser les objets.
 void Romantique::use(Objet o)
 {

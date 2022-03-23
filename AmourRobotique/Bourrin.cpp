@@ -33,6 +33,18 @@ void Bourrin::setForceur(int fo)
 	}
 }
 
+void Bourrin::disquetteBourrinL(Enemy& enemy)
+{
+}
+
+void Bourrin::disquetteBourrinM(Enemy& enemy)
+{
+}
+
+void Bourrin::disquetteBourrinXL(Enemy& enemy)
+{
+}
+
 void Bourrin::use(Objet o)
 {
 	for (int i = 0; i < inventaire.size(); i++) {
