@@ -12,7 +12,9 @@ public:
 	int getLourdeur() const;
 	void setLourdeur(int l);
 
-	void disquetteBeauf();
+	void disquetteBeaufL(Personnage& enemy);
+	void disquetteBeaufM(Personnage& enemy);
+	void disquetteBeaufXL(Personnage& enemy);
 
 	friend ostream& operator<<(ostream& os, Beauf const& p);
 
