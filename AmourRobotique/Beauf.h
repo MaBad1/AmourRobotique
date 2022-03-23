@@ -1,3 +1,4 @@
+#include "Enemy.h"
 #include "Personnage.h"
 
 class Beauf : public Personnage
@@ -12,9 +13,9 @@ public:
 	int getLourdeur() const;
 	void setLourdeur(int l);
 
-	void disquetteBeaufL(Personnage& enemy);
-	void disquetteBeaufM(Personnage& enemy);
-	void disquetteBeaufXL(Personnage& enemy);
+	void disquetteBeaufL(Enemy& enemy);
+	void disquetteBeaufM(Enemy& enemy);
+	void disquetteBeaufXL(Enemy& enemy);
 
 	friend ostream& operator<<(ostream& os, Beauf const& p);
 

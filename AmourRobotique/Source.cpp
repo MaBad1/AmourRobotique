@@ -3,7 +3,7 @@
 #include "Bourrin.h"
 #include<time.h>
 
-void openInv(vector<vector<int>> inventaire)
+void openInv(vector<vector<int>> &inventaire)
 {
 	for (int i = 0; i < inventaire.size(); i++) {
 		for (int j = 0; j < inventaire[i].size(); j++) {
@@ -37,7 +37,7 @@ void openInv(vector<vector<int>> inventaire)
 		cout << endl;
 	}
 }
-
+//Loot des items/déposé dans l'inventaire
 void loot(Personnage& p, Objet o) {
 	for (int i = 0; i < p.inventaire.size(); i++) {
 		for (int j = 0; j < p.inventaire[i].size(); j++) {

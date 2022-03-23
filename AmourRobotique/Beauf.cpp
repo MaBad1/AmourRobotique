@@ -33,10 +33,10 @@ void Beauf::setLourdeur(int l)
 	}
 }
 
-void Beauf::disquetteBeaufL(Personnage& enemy)
+void Beauf::disquetteBeaufL(Enemy& enemy)
 {
 	if (getLourdeur() == 100) {
-		cout << "C'est l'histoire du mec qui bouffe le cul d'une pute !" << endl;
+		cout << "C'est l'histoire du mec qui bouffe le cul d'une pute !" << endl;	
 	}
 	else {
 		setFlirt(getFlirt() - 50);
@@ -44,7 +44,7 @@ void Beauf::disquetteBeaufL(Personnage& enemy)
 	}
 }
 
-void Beauf::disquetteBeaufM(Personnage& enemy)
+void Beauf::disquetteBeaufM(Enemy& enemy)
 {
 	if (getLourdeur() == 100) {
 		cout << "C'est l'histoire du mec qui bouffe le cul d'une pute !" << endl;
@@ -55,7 +55,7 @@ void Beauf::disquetteBeaufM(Personnage& enemy)
 	}
 }
 
-void Beauf::disquetteBeaufXL(Personnage& enemy)
+void Beauf::disquetteBeaufXL(Enemy& enemy)
 {
 	if (getLourdeur() == 100) {
 		cout << "C'est l'histoire du mec qui bouffe le cul d'une pute !" << endl;
