@@ -17,13 +17,15 @@ private:
 
 
 public:
-
+	//déclaration de l'inventaire en public pour pouvoir le modifier sans passer par getters/setters.
 	vector<vector<int>> inventaire;
 
+	//constructeurs.
 	Personnage();
 
 	Personnage(string n, int h, int f, int e, bool k, int x);
 
+	//getters setters des attributs en privé.
 	string getName() const;
 	void setName(string n);
 
@@ -39,6 +41,7 @@ public:
 	bool getKo() const;
 	void setKo(bool k);
 
+	//Setter de l'inventaire pour le créer aux dimenstions voulues.
 	void setInv(int x);
 
 	bool operator>(Personnage& target);

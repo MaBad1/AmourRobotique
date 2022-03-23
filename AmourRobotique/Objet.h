@@ -12,11 +12,11 @@ private :
 	int bonus;
 	int malus;
 	string description;
-	int valeur;
+	int valeur; //La valeur corrspond à l'ID de l'objet qui servira à le stocker et l'utiliser dans l'inventaire.
 
 public :
 
-	~Objet();
+	~Objet(); //Destructeur
 
 	Objet();
 

@@ -5,13 +5,14 @@ Beauf::Beauf()
 	setLourdeur(50);
 }
 
-Beauf::Beauf(string n, int h, int f, int e, bool k, int l)
+Beauf::Beauf(string n, int h, int f, int e, bool k,int x, int l)
 {
 	setName(n);
 	setHealth(h);
 	setFlirt(f);
 	setEgo(e);
 	setKo(k);
+	setInv(x);
 	setLourdeur(l);
 
 }
@@ -30,6 +31,34 @@ void Beauf::setLourdeur(int l)
 	}
 	else {
 		lourdeur = l;
+	}
+}
+
+void Beauf::use(Objet o)
+{
+	for (int i = 0; i < inventaire.size(); i++) {
+		for (int j = 0; j < inventaire[i].size(); j++) {
+			if (inventaire[i][j] == o.getValeur()) {
+				if (inventaire[i][j] == 3) {
+					setEgo(getEgo() + o.getBonus());
+					setLourdeur(getLourdeur() + o.getMalus());
+					inventaire[i][j] = 0;
+					cout << getName() << " montre une capote !" << endl;
+					break;
+				}
+				else if (inventaire[i][j] == 4) {
+					setFlirt(getFlirt() + o.getBonus());
+					setLourdeur(getLourdeur() + o.getMalus());
+					inventaire[i][j] = 0;
+					cout << getName() << " montre une video de Bigard !" << endl;
+					break;
+				}
+				else {
+					cout << getName() << "ne peut pas utiliser cet objet" << endl;
+					break;
+				}
+			}
+		}
 	}
 }
 

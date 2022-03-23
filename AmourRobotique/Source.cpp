@@ -3,6 +3,7 @@
 #include "Bourrin.h"
 
 
+//Fonction pour ouvrir l'inventaire.
 void openInv(vector<vector<int>> inventaire)
 {
 	for (int i = 0; i < inventaire.size(); i++) {
@@ -38,11 +39,13 @@ void openInv(vector<vector<int>> inventaire)
 	}
 }
 
-void loot(Personnage& p, Objet o) {
+//loot des objets dans l'inventaire d'un personnage.
+void loot(Personnage& p, Objet o) //On utilise une copie des objets pour garder les presets intacts.
+{
 	for (int i = 0; i < p.inventaire.size(); i++) {
 		for (int j = 0; j < p.inventaire[i].size(); j++) {
 			if (p.inventaire[i][j] > 0) {
-				cout << "+1";
+				cout << "next case";
 			}
 			else{
 				p.inventaire[i][j]= o.getValeur();
@@ -55,26 +58,15 @@ void loot(Personnage& p, Objet o) {
 
 int main() {
 
-
-	Personnage p1("Anto", 200, 200, 100, false, 5);
-	Objet o1("Fleur", 10, 5, "+10 Flirt, -5 Ego", 1);
-	Objet o2("Bague", 5, 10, "+5 sensibilite, -10 Ego", 2);
-	Objet o3("Capote", 10, 15, "+10 Ego, +15 Lourdeur", 3);
-	Objet o4("Video de Bigard", 5, 10, "+5 Flirt, +10 Lourdeur", 4);
-	Objet o5("Fouet", 10, 15, "+10 Ego, +15 Forceur", 5);
-	Objet o6("Menottes", 5, 10, "+5 Flirt, +10 Forceur", 6);
-
-	cout << p1;
-	openInv(p1.inventaire);
-
-	loot(p1, o1);
-	loot(p1, o3);
-	loot(p1, o6);
-	loot(p1, o2);
-	loot(p1, o5);
-	loot(p1, o4);
-
-	openInv(p1.inventaire);
+	//Création des 6 objets du jeu.
+	Objet Fleur("Fleur", 10, 5, "+10 Flirt, -5 Ego", 1);
+	Objet Bague("Bague", 5, 10, "+5 sensibilite, -10 Ego", 2);
+	Objet Capote("Capote", 10, 15, "+10 Ego, +15 Lourdeur", 3);
+	Objet Video("Video de Bigard", 5, 10, "+5 Flirt, +10 Lourdeur", 4);
+	Objet Fouet("Fouet", 10, 15, "+10 Ego, +15 Forceur", 5);
+	Objet Menottes("Menottes", 5, 10, "+5 Flirt, +10 Forceur", 6);
+	
+	
 
 
 }

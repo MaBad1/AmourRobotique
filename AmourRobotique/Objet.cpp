@@ -2,7 +2,7 @@
 
 Objet::~Objet()
 {
-	cout << getName() << "utilisé !" << endl;
+	cout << getName() << " detruit !" << endl;
 }
 
 Objet::Objet()
