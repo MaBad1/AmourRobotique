@@ -1,10 +1,11 @@
 #include "Beauf.h"
 #include "Romantique.h"
 #include "Bourrin.h"
+#include "Enemy.h"
 #include<time.h>
 
 //Fonction pour ouvrir l'inventaire.
-void openInv(vector<vector<int>> &inventaire)
+void openInv(vector<vector<int>>& inventaire)
 {
 	for (int i = 0; i < inventaire.size(); i++) {
 		for (int j = 0; j < inventaire[i].size(); j++) {
@@ -46,8 +47,8 @@ void loot(Personnage& p, Objet o) // On utilise une copie des objets pour garder
 			if (p.inventaire[i][j] > 0) {
 				cout << "next case";
 			}
-			else{
-				p.inventaire[i][j]= o.getValeur();
+			else {
+				p.inventaire[i][j] = o.getValeur();
 				break;
 			}
 		}
@@ -55,16 +56,68 @@ void loot(Personnage& p, Objet o) // On utilise une copie des objets pour garder
 	}
 }
 
+
+
+void tourjoueur(Personnage& p)
+{
+	int choixP = 0;//initialisation du choix
+
+	if (p.getKo() == false) {
+
+
+		cout << endl << "---" << p.getName() << "---" << endl;
+
+		cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+		cin >> choixP;
+		//Choix de l'attack
+		if (choixP == 1) {
+			cout << "ATTACK Faible" << endl;
+		}
+		if (choixP == 2) {
+			cout << "ATTACK Moyenne" << endl;
+		}
+		if (choixP == 3) {
+			cout << "ATTACK Forte" << endl;
+		}
+	}
+
+
+
+}
+
+
+void tourenemy(Enemy& e) {
+
+
+	int choixEnemie = 1 + rand() % 3;//random
+
+	//Choix de l'attack
+	if (e.getKo() == false) {
+		cout << endl << "---" << e.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
+
+		if (choixEnemie == 1) {
+			cout << "ATTACK Faible" << endl;
+		}
+		if (choixEnemie == 2) {
+			cout << "ATTACK Moyenne" << endl;
+		}
+		if (choixEnemie == 3) {
+
+			cout << "ATTACK Forte" << endl;
+		}
+	}
+}
+
+
 int main() {
 
 	Personnage p1("Anto", 200, 200, 100, false, 5);
-	Personnage p2("Mathieu", 200, 200, 100, false,5);
-	Personnage p3("Giovan", 200, 200, 100, false,5);
+	Personnage p2("Mathieu", 200, 200, 100, false, 5);
+	Personnage p3("Giovan", 200, 200, 100, false, 5);
 
-	Personnage p4("Valentine", 200, 200, 100, false,5);
-	Personnage p5("Helene", 200, 200, 100, false,5);
-	Personnage p6("Manon", 200, 200, 100, false,5);
-
+	Enemy e1("Stefanie", 10, 100, false);
+	Enemy e2("Gwendoline", 10, 100, false);
+	Enemy e3("Patricia", 10, 100, false);
 
 	// Création des 6 objets du jeu.
 	Objet Fleur("Fleur", 10, 5, "+10 Flirt, -5 Ego", 1);
@@ -77,117 +130,20 @@ int main() {
 	cout << p1;
 	openInv(p1.inventaire);
 
+	//Boucle de Combat
+	while (p1.getHealth() + p2.getHealth() + p3.getHealth() > 0) {
 
-
-
-
-	int choixP = 0;
-
-	int choixEnemie = 0;
-	cout << p1;
-
-	while (p1.getHealth() + p2.getHealth() + p3.getHealth() > 0 && p1.getHealth() > 0) {
-
-		if (p1.getKo() == false) {
-			cout << endl << "---" << p1.getName() << "---" << endl;
-
-
-			cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
-			cin >> choixP;
-			if (choixP == 1) {
-				cout << "ATTACK Faible" << endl;
-			}
-			if (choixP == 2) {
-				cout << "ATTACK Moyenne" << endl;
-			}
-			if (choixP == 3) {
-				cout << "ATTACK Forte" << endl;
-			}
-		}
-
-		if (p2.getKo() == false) {
-			cout << endl << "---" << p2.getName() << "---" << endl;
-			cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
-			cin >> choixP;
-
-			if (choixP == 1) {
-				cout << "ATTACK Faible" << endl;
-			}
-
-			if (choixP == 2) {
-				cout << "ATTACK Moyenne" << endl;
-			}
-
-			if (choixP == 3) {
-				cout << "ATTACK Forte" << endl;
-			}
-		}
-
-		if (p3.getKo() == false) {
-			cout << endl << "---" << p3.getName() << "---" << endl;
-			cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner l'atatck" << endl;
-			cin >> choixP;
-
-
-			if (choixP == 1) {
-				cout << "ATTACK Faible" << endl;
-			}
-			if (choixP == 2) {
-				cout << "ATTACK Moyenne" << endl;
-			}
-			if (choixP == 3) {
-				cout << "ATTACK Forte" << endl;
-			}
-		}
-
+		tourjoueur(p1);
+		tourjoueur(p2);
+		tourjoueur(p3);
 
 		cout << "FIN DE TOUR JOUEUR" << endl;
 
+		tourenemy(e1);
+		tourenemy(e2);
+		tourenemy(e3);
 
-		srand(time(NULL));
-		choixEnemie = 1 + rand() % 3;
-		cout << endl << "---" << p4.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
-		if (p4.getKo() == false) {
-			if (choixEnemie == 1) {
-				cout << "ATTACK Faible" << endl;
-			}
-			if (choixEnemie == 2) {
-				cout << "ATTACK Moyenne" << endl;
-			}
-			if (choixEnemie == 3) {
-
-				cout << "ATTACK Forte" << endl;
-			}
-		}
-		choixEnemie = 1 + rand() % 3;
-		cout << endl << "---" << p5.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
-		if (p5.getKo() == false) {
-			if (choixEnemie == 1) {
-				cout << "ATTACK Faible" << endl;
-			}
-			if (choixEnemie == 2) {
-				cout << "ATTACK Moyenne" << endl;
-			}
-			if (choixEnemie == 3) {
-
-				cout << "ATTACK Forte" << endl;
-			}
-		}
-		choixEnemie = 1 + rand() % 3;
-		cout << endl << "---" << p6.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
-		if (p6.getKo() == false) {
-			if (choixEnemie == 1) {
-				cout << "ATTACK Faible" << endl;
-			}
-			if (choixEnemie == 2) {
-				cout << "ATTACK Moyenne" << endl;
-			}
-			if (choixEnemie == 3) {
-
-				cout << "ATTACK Forte" << endl;
-			}
-		}
-		cout << "FIN DE TOUR ENEMIE" << endl;
+		cout << endl << "FIN DE TOUR ENEMIE" << endl;
 
 
 	}
