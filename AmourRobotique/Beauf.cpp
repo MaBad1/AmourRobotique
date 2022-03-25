@@ -37,7 +37,7 @@ void Beauf::setLourdeur(int l)
 void Beauf::disquetteBeaufL(Enemy& enemy)
 {
 	if (getLourdeur() == 100) {
-		cout << "C'est l'histoire du mec qui bouffe le cul d'une pute !" << endl;	
+		cout << "Je t'aime.. Oops" << endl;	
 	}
 	else {
 		setFlirt(getFlirt() - 50);
@@ -48,7 +48,7 @@ void Beauf::disquetteBeaufL(Enemy& enemy)
 void Beauf::disquetteBeaufM(Enemy& enemy)
 {
 	if (getLourdeur() == 100) {
-		cout << "C'est l'histoire du mec qui bouffe le cul d'une pute !" << endl;
+		cout << "Je t'aime.. Oops" << endl;
 	}
 	else {
 		setLourdeur(getLourdeur() - 50);
@@ -59,11 +59,19 @@ void Beauf::disquetteBeaufM(Enemy& enemy)
 void Beauf::disquetteBeaufXL(Enemy& enemy)
 {
 	if (getLourdeur() == 100) {
-		cout << "C'est l'histoire du mec qui bouffe le cul d'une pute !" << endl;
+		cout << "Je t'aime.. Oops" << endl;
 	}
 	else {
-		setLourdeur(getLourdeur() - 50);
-		int bonus = getFlirt() + 25;
+
+		srand((unsigned)time(0));
+		int AuSort;
+		AuSort = (rand() % 100) + 1;;
+		srand((unsigned)time(0));
+
+		int damage = getFlirt();
+		if (damage > 0) {
+			enemy.setSeduction(enemy.getSeduction() - damage);
+		}
 	}
 }
 
