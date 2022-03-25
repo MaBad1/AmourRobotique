@@ -110,6 +110,51 @@ void tourenemy(Enemy& e) {
 	}
 }
 
+void attackjoueur(Personnage& p, Enemy& e1, Enemy& e2, Enemy& e3)
+{
+	int cible = 0;
+	if (p.getKo() == false) 
+	{
+		cout << endl << "---" << p.getName() << "---" << endl;
+		cout << "Choix d'une cible :" << endl << "1."<< e1.getName()<< "2."<< e2.getName()<<"3."<<e3.getKo()<<endl;
+		cin >> cible;
+		if (cible == 1) 
+		{
+
+		}
+		if (cible == 2) 
+		{
+
+		}
+		if (cible == 3) 
+		{
+
+		}
+	}
+}
+
+void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
+{
+	int cible = 1 + rand() % 3;
+	if (e.getKo() == false) 
+	{
+		cout << "Choix d'une cible" << endl ;
+		cin >> cible;
+
+		if (cible == 1) 
+		{
+			
+		}
+		if (cible == 2) 
+		{
+
+		}
+		if (cible == 3) 
+		{
+
+		}
+	}
+}
 
 int main() {
 
