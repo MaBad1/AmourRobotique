@@ -146,6 +146,7 @@
     <ClCompile Include="Personnage.cpp" />
     <ClCompile Include="Romantique.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Zone.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Beauf.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="Objet.h" />
     <ClInclude Include="Personnage.h" />
     <ClInclude Include="Romantique.h" />
+    <ClInclude Include="Zone.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

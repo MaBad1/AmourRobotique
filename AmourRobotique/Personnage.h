@@ -14,6 +14,7 @@ private:
 	int flirt;//L'attaque des adversaires
 	int ego;//Barre de vie
 	bool ko;//En Vie ou mort
+	int place;//id de la zone où le joueur se trouve
 
 
 public:
@@ -23,7 +24,7 @@ public:
 	//constructeurs.
 	Personnage();
 
-	Personnage(string n, int h, int f, int e, bool k, int x);
+	Personnage(string n, int h, int f, int e, bool k, int x,int p);
 
 	//getters setters des attributs en privé.
 	string getName() const;
@@ -40,6 +41,9 @@ public:
 
 	bool getKo() const;
 	void setKo(bool k);
+
+	int getPlace() const;
+	void setPlace(int p);
 
 	//Setter de l'inventaire pour le créer aux dimenstions voulues.
 	void setInv(int x);

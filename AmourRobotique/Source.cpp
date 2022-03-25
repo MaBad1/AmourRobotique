@@ -3,6 +3,8 @@
 #include "Bourrin.h"
 #include "Enemy.h"
 #include<time.h>
+#include "Zone.h"
+#include <list>
 
 //Fonction pour ouvrir l'inventaire.
 void openInv(vector<vector<int>>& inventaire)
@@ -111,9 +113,9 @@ void tourenemy(Enemy& e) {
 
 int main() {
 
-	Personnage p1("Anto", 200, 200, 100, false, 5);
-	Personnage p2("Mathieu", 200, 200, 100, false, 5);
-	Personnage p3("Giovan", 200, 200, 100, false, 5);
+	Personnage p1("Anto", 200, 200, 100, false, 5, 0);
+	Personnage p2("Mathieu", 200, 200, 100, false, 5, 0);
+	Personnage p3("Giovan", 200, 200, 100, false, 5, 0);
 
 	Enemy e1("Stefanie", 10, 100, false);
 	Enemy e2("Gwendoline", 10, 100, false);
@@ -129,6 +131,62 @@ int main() {
 
 	cout << p1;
 	openInv(p1.inventaire);
+
+
+	//système de zone
+	cout << endl << endl << "--------Depart des tests de zone-----" << endl << endl;
+
+	int choixZ = 0; // création de la variable de choix de zone
+	int FinChoixZ = 0;
+
+	Zone z1("Tord boyaux", 1, 1, 2, false);
+	Zone z2("chupitos", 2, 1, 3, false);
+	Zone z3("victoria", 3, 1, 1, false);
+
+	cout << z1 << endl;
+	 
+	/*
+	* ça marche pas ptn
+	* 
+	* 
+	list<Zone> liste;
+	list<Zone>::iterator it = liste.begin();
+	advance(it, 1);
+	cout << (*it).getName() << endl;
+	*/
+	
+	
+
+
+	if (p1.getPlace() == 0) {
+		cout << "le joueur :" << p1.getName() << " se trouve au départ" << endl;
+
+		cout << "Choisissez une zone entre le tord boyaux(1), le chupitos(2) ou le victoria(3)" << endl;
+		while (FinChoixZ == 0) {
+			cin >> choixZ;
+
+			if (choixZ == 1) {
+				cout << "Vous entrez au tord boyaux" << endl;
+				FinChoixZ = 1;
+			}
+			else if (choixZ == 2) {
+				cout << "vous entrez au chupitos " << endl;
+				FinChoixZ = 1;
+			}
+			else if (choixZ == 3) {
+				cout << "vous entrez au victoria" << endl;
+				FinChoixZ = 1;
+			}
+			else {
+				cout << "erreur d'entree, veuillez entrer un chiffre entre 1 et 3" << endl;
+			}
+		}
+	
+	}
+
+
+
+	cout << endl << endl << "--------Fin des tests de zone-----" << endl << endl;
 
 	//Boucle de Combat
 	while (p1.getHealth() + p2.getHealth() + p3.getHealth() > 0) {
@@ -147,5 +205,7 @@ int main() {
 
 
 	}
+
+
 
 }

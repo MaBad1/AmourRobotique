@@ -6,10 +6,11 @@ Personnage::Personnage()
 	setHealth(50);
 	setFlirt(20);
 	setInv(5);
+	setPlace(0);
 
 }
 
-Personnage::Personnage(string n, int h, int f, int e, bool k, int x)
+Personnage::Personnage(string n, int h, int f, int e, bool k, int x, int p)
 {
 	setName(n);
 	setHealth(h);
@@ -17,6 +18,7 @@ Personnage::Personnage(string n, int h, int f, int e, bool k, int x)
 	setEgo(e);
 	setKo(k);
 	setInv(x);
+	setPlace(p);
 
 }
 
@@ -96,6 +98,16 @@ bool Personnage::getKo() const
 void Personnage::setKo(bool k)
 {
 	ko = k;
+}
+
+int Personnage::getPlace() const
+{
+	return place;
+}
+
+void Personnage::setPlace(int p)
+{
+	place = p;
 }
 
 
