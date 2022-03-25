@@ -60,74 +60,85 @@ void loot(Personnage& p, Objet o) // On utilise une copie des objets pour garder
 
 
 
-void tourjoueur(Personnage& p)
-{
-	int choixP = 0;//initialisation du choix
-
-	if (p.getKo() == false) {
-
-
-		cout << endl << "---" << p.getName() << "---" << endl;
-
-		cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
-		cin >> choixP;
-		//Choix de l'attack
-		if (choixP == 1) {
-			cout << "ATTACK Faible" << endl;
-		}
-		if (choixP == 2) {
-			cout << "ATTACK Moyenne" << endl;
-		}
-		if (choixP == 3) {
-			cout << "ATTACK Forte" << endl;
-		}
-	}
-
-
-
-}
-
-
-void tourenemy(Enemy& e) {
-
-
-	int choixEnemie = 1 + rand() % 3;//random
-
-	//Choix de l'attack
-	if (e.getKo() == false) {
-		cout << endl << "---" << e.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
-
-		if (choixEnemie == 1) {
-			cout << "ATTACK Faible" << endl;
-		}
-		if (choixEnemie == 2) {
-			cout << "ATTACK Moyenne" << endl;
-		}
-		if (choixEnemie == 3) {
-
-			cout << "ATTACK Forte" << endl;
-		}
-	}
-}
-
 void attackjoueur(Personnage& p, Enemy& e1, Enemy& e2, Enemy& e3)
 {
 	int cible = 0;
+
 	if (p.getKo() == false) 
 	{
 		cout << endl << "---" << p.getName() << "---" << endl;
-		cout << "Choix d'une cible :" << endl << "1."<< e1.getName()<< "2."<< e2.getName()<<"3."<<e3.getKo()<<endl;
+		cout << "Choix d'une cible :" << endl << "1."<< e1.getName()<< "2."<< e2.getName()<<"3."<<e3.getName()<<endl;
 		cin >> cible;
 		if (cible == 1) 
 		{
+			int choixP = 0;//initialisation du choix
+
+			if (p.getKo() == false) {
+
+
+				cout << endl << "---" << p.getName() << "---" << endl;
+
+				cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+				cin >> choixP;
+				//Choix de l'attack
+				if (choixP == 1) {
+					cout << "ATTACK Faible" << endl;
+				}
+				if (choixP == 2) {
+					cout << "ATTACK Moyenne" << endl;
+				}
+				if (choixP == 3) {
+					cout << "ATTACK Forte" << endl;
+				}
+			}
 
 		}
 		if (cible == 2) 
 		{
+			int choixP = 0;//initialisation du choix
+
+			if (p.getKo() == false) {
+
+
+				cout << endl << "---" << p.getName() << "---" << endl;
+
+				cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+				cin >> choixP;
+				//Choix de l'attack
+				if (choixP == 1) {
+					cout << "ATTACK Faible" << endl;
+				}
+				if (choixP == 2) {
+					cout << "ATTACK Moyenne" << endl;
+				}
+				if (choixP == 3) {
+					cout << "ATTACK Forte" << endl;
+				}
+			}
 
 		}
 		if (cible == 3) 
 		{
+			int choixP = 0;//initialisation du choix
+
+			if (p.getKo() == false) {
+
+
+				cout << endl << "---" << p.getName() << "---" << endl;
+
+				cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+				cin >> choixP;
+				//Choix de l'attack
+				if (choixP == 1) {
+					cout << "ATTACK Faible" << endl;
+				}
+				if (choixP == 2) {
+					cout << "ATTACK Moyenne" << endl;
+				}
+				if (choixP == 3) {
+					cout << "ATTACK Forte" << endl;
+				}
+			}
 
 		}
 	}
@@ -138,19 +149,81 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 	int cible = 1 + rand() % 3;
 	if (e.getKo() == false) 
 	{
-		cout << "Choix d'une cible" << endl ;
-		cin >> cible;
+
+
 
 		if (cible == 1) 
 		{
-			
+			cout << endl << "---" << e.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
+
+			int choixEnemie = 1 + rand() % 3;//random
+			cout << "La cible choisie " << p1.getName() << endl;
+
+			//Choix de l'attack
+			if (e.getKo() == false) {
+
+				if (choixEnemie == 1) {
+					cout << "ATTACK Faible" << endl;
+				}
+				if (choixEnemie == 2) {
+					cout << "ATTACK Moyenne" << endl;
+				}
+				if (choixEnemie == 3) {
+
+					cout << "ATTACK Forte" << endl;
+				}
+			}
+
+
 		}
 		if (cible == 2) 
 		{
+		
+			cout << endl << "---" << e.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
+
+			int choixEnemie = 1 + rand() % 3;//random
+			cout << "La cible choisie " << p2.getName() << endl;
+
+			//Choix de l'attack
+			if (e.getKo() == false) {
+
+				if (choixEnemie == 1) {
+					cout << "ATTACK Faible" << endl;
+				}
+				if (choixEnemie == 2) {
+					cout << "ATTACK Moyenne" << endl;
+				}
+				if (choixEnemie == 3) {
+
+					cout << "ATTACK Forte" << endl;
+				}
+			}
+
 
 		}
 		if (cible == 3) 
 		{
+			cout << endl << "---" << e.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
+
+			cout << "La cible choisie " << p3.getName() << endl;
+
+			int choixEnemie = 1 + rand() % 3;//random
+
+
+			//Choix de l'attack
+			if (e.getKo() == false) {
+
+				if (choixEnemie == 1) {
+					cout << "ATTACK Faible" << endl;
+				}
+				if (choixEnemie == 2) {
+					cout << "ATTACK Moyenne" << endl;
+				}
+				if (choixEnemie == 3) {
+
+					cout << "ATTACK Forte" << endl;
+				}
+			}
 
 		}
 	}
@@ -245,16 +318,16 @@ int main() {
 	//Boucle de Combat
 	while (p1.getHealth() + p2.getHealth() + p3.getHealth() > 0) {
 
-		tourjoueur(p1);
-		tourjoueur(p2);
-		tourjoueur(p3);
 
+		attackjoueur(p1, e1, e2, e3);
+		attackjoueur(p2, e1, e2, e3);
+		attackjoueur(p3, e1, e2, e3);
 		cout << "FIN DE TOUR JOUEUR" << endl;
 
-		tourenemy(e1);
-		tourenemy(e2);
-		tourenemy(e3);
 
+		attackenemy(p1,p2,p3,e1);
+		attackenemy(p1,p2,p3,e2);
+		attackenemy(p1,p2,p3,e3);
 		cout << endl << "FIN DE TOUR ENEMIE" << endl;
 
 
