@@ -48,6 +48,8 @@ public:
 	//Setter de l'inventaire pour le créer aux dimenstions voulues.
 	void setInv(int x);
 
+	void use(Objet o);
+
 	bool operator>(Personnage& target);
 
 	bool operator<(Personnage& target);

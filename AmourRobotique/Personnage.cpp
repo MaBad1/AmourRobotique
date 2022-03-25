@@ -121,6 +121,19 @@ void Personnage::setInv(int x)
 	}
 }
 
+void Personnage::use(Objet o)
+{
+	for (int i = 0; i < inventaire.size(); i++) {
+		for (int j = 0; j < inventaire[i].size(); j++) {
+			//Si l'objet est trouvé on l'utilise.
+			if (inventaire[i][j] == o.getValeur()) {
+				cout << getName() << " ne peut pas utiliser cet objet" << endl;
+				break;
+			}
+		}
+	}
+}
+
 
 bool Personnage::operator>(Personnage& target)
 {
