@@ -140,15 +140,24 @@ int main() {
 	int FinChoixZ = 0;
 
 	Zone z1("Tord boyaux", 1, 1, 2, false);
-	Zone z2("chupitos", 2, 1, 3, false);
+	Zone z2("chupitos", 2, 2, 3, false);
 	Zone z3("victoria", 3, 1, 1, false);
 
 	cout << z1 << endl;
-	 
+
+	vector<Zone> zones;
+	zones.push_back(z1);
+	zones.push_back(z2);
+	zones.push_back(z3);
+
+
+	for (int i = 0; i < zones.size(); i++) {
+		if (zones[i].getNiveau() == 1) {
+			cout << zones[i].getName() << " est possible" << endl;
+		}
+	}
+
 	/*
-	* ça marche pas ptn
-	* 
-	* 
 	list<Zone> liste;
 	list<Zone>::iterator it = liste.begin();
 	advance(it, 1);
