@@ -300,62 +300,123 @@ int main() {
 	cout << endl << endl << "--------Depart des tests de zone-----" << endl << endl;
 
 	int choixZ = 0; // création de la variable de choix de zone
-	int FinChoixZ = 0;
+	int FinChoixZ = 0; // création de la variable de fin de boucle de choix de zone
+	int chosen_way = 0;//creation de la variable de choix de zone pour initialiser la boucle de gameplay selon le choix
 
-	Zone z1("Tord boyaux", 1, 1, 2, false);
-	Zone z2("chupitos", 2, 2, 3, false);
+	Zone z1("Tord boyaux", 1, 1, 2, false);//creation d'une zone ("nom", id, Niveau, nombre de chemins suivants, lié au joueur ?)
+	Zone z2("chupitos", 2, 1, 3, false);
 	Zone z3("victoria", 3, 1, 1, false);
+	Zone z4("Alhambra", 4, 2, 2, false);//cette zone est donc une zone dédiée à une potentielle suite du premier niveau car l'attribut niveau est à 2
+	Zone z5("bockale", 5, 2, 1, false);
 
-	cout << z1 << endl;
+	//cout << z1 << endl;//affichage des infos de z1
 
-	vector<Zone> zones;
-	zones.push_back(z1);
+	vector<Zone> zones;//creation d'un tableau avec des zones
+	zones.push_back(z1);//ajout de la première zone dans le tableau
 	zones.push_back(z2);
 	zones.push_back(z3);
+	zones.push_back(z4);
 
-
-	for (int i = 0; i < zones.size(); i++) {
-		if (zones[i].getNiveau() == 1) {
-			cout << zones[i].getName() << " est possible" << endl;
-		}
-	}
-
-	/*
-	list<Zone> liste;
-	list<Zone>::iterator it = liste.begin();
-	advance(it, 1);
-	cout << (*it).getName() << endl;
-	*/
-	
+	vector<Zone> zonesPossibles;//creation de la liste qui n'aura que les zones accessibles
 	
 
+	if (p1.getPlace() == 0) {//si la position du joueur 1 est de 0 (c'est à dire le spawn)
 
-	if (p1.getPlace() == 0) {
+		int choixZ = 0; // création/réinitialisation à 0 de la variable de choix de zone
+		int FinChoixZ = 0;// création/réinitialisation à 0 de la variable de fin de choix de zone pour sortir du while plus bas
+		
+
 		cout << "le joueur :" << p1.getName() << " se trouve au départ" << endl;
-
-		cout << "Choisissez une zone entre le tord boyaux(1), le chupitos(2) ou le victoria(3)" << endl;
-		while (FinChoixZ == 0) {
-			cin >> choixZ;
-
-			if (choixZ == 1) {
-				cout << "Vous entrez au tord boyaux" << endl;
-				FinChoixZ = 1;
-			}
-			else if (choixZ == 2) {
-				cout << "vous entrez au chupitos " << endl;
-				FinChoixZ = 1;
-			}
-			else if (choixZ == 3) {
-				cout << "vous entrez au victoria" << endl;
-				FinChoixZ = 1;
-			}
-			else {
-				cout << "erreur d'entree, veuillez entrer un chiffre entre 1 et 3" << endl;
+		
+		for (int i = 0; i < zones.size(); i++) {//recherche parmis chaque zone, qu'elle zone est accessible pour le joueur
+			if (zones[i].getNiveau() == 1) {//ici, on cherche chaque zone dont le niveau est 1 (si le joueur est dans une zone de niveau1, il faudra chercher les zones de niveau 2)
+				cout << zones[i].getName() << " est possible" << endl;//toutes les zones de niveau 1
+				zones[i].setLinked(true);//sont accessibles
+				zonesPossibles.push_back(zones[i]);//ajout de la zone dans une nouvelle liste qui ne contient que les zones possibles
 			}
 		}
+
+		cout << " taille de la liste : " << zonesPossibles.size() << endl;
+		
+		if (zonesPossibles.size() == 3) {//si il y a 3 zones différentes on vient ici
+
+			while (FinChoixZ == 0) {
+
+				cout << "Choisissez une des zones disponibles en écrivant un chiffre entre 1 et 3" << endl;
+				cin >> choixZ;
+
+				if (choixZ == 1) {//le joueur choisit la zone n°1
+					cout << "Vous entrez dans : " << zonesPossibles[0].getName() << endl;//on affiche le nom de la zone n°1 (!)attention(!) le premier élément d'une liste est toujours 0, le deuxième 1 etc...
+					zonesPossibles[1].setLinked(false);//on délink les autres zones car elles ne seront plus accessibles (pas besoin de comprendre ça je l'utilise pas pour l'instant)
+					zonesPossibles[2].setLinked(false);
+					chosen_way = 1;//le choix choisis est le numéro un , permet d'initialiser les boucles de jeu plus bas
+					FinChoixZ = 1;//on sort de la boucle
+				}
+				else if (choixZ == 2) {
+					cout << "vous entrez dans : " << zonesPossibles[1].getName() << endl;
+					zonesPossibles[0].setLinked(false);
+					zonesPossibles[2].setLinked(false);
+					chosen_way = 2;
+					FinChoixZ = 1;
+				}
+				else if (choixZ == 3) {
+					cout << "vous entrez dans : " << zonesPossibles[2].getName() << endl;
+					zonesPossibles[0].setLinked(false);
+					zonesPossibles[1].setLinked(false);
+					chosen_way = 3;
+					FinChoixZ = 1;
+				}
+				else {
+					cout << "erreur d'entree, veuillez entrer un chiffre entre 1 et 3" << endl;
+				}
+			}
+		}
+
+		if (zonesPossibles.size() == 2) {//si il y a 2 zones différentes on vient ici
+
+			while (FinChoixZ == 0) {
+
+				cout << "Choisissez une des zones disponibles en écrivant un chiffre entre 1 et 2" << endl;
+				cin >> choixZ;
+
+				if (choixZ == 1) {//le joueur choisit la zone n°1
+					cout << "Vous entrez dans : " << zonesPossibles[0].getName() << endl;//on affiche le nom de la zone n°1 (!)attention(!) le premier élément d'une liste est toujours 0, le deuxième 1 etc...
+					zonesPossibles[1].setLinked(false);//on délink les autres zones car elles ne seront plus accessibles (pas besoin de comprendre ça je l'utilise pas pour l'instant)
+					chosen_way = 1;//le choix choisis est le numéro un , permet d'initialiser les boucles de jeu plus bas
+					FinChoixZ = 1;//on sort de la boucle
+				}
+				else if (choixZ == 2) {
+					cout << "vous entrez dans : " << zonesPossibles[1].getName() << endl;
+					zonesPossibles[0].setLinked(false);
+					chosen_way = 2;
+					FinChoixZ = 1;
+				}
+				else {
+					cout << "erreur d'entree, veuillez entrer un chiffre entre 1 et 2" << endl;
+				}
+			}
+		}
+	}
+		
 	
+
+	if (chosen_way == 1) {//choix de la zone du torb boyaux 
+		//entrer la boucle de combat ici 
+		cout << "depart du combat" << endl;
+		cout << "vous etes dans : " << endl<<zonesPossibles[0] << endl;
 	}
 
+	if (chosen_way == 2) {//choix de la zone du chupitos 
+		//entrer la boucle de combat ici 
+		cout << "depart du combat bis" << endl;
+
+	}
+
+	if (chosen_way == 3) {//choix de la zone du victoria 
+		//entrer la boucle de combat ici 
+		cout << "depart du combat bis bis" << endl;
+
+	}
 
 
 	cout << endl << endl << "--------Fin des tests de zone-----" << endl << endl;
