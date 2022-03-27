@@ -113,7 +113,6 @@ void Personnage::setPlace(int p)
 string Personnage::getRandomDisquette(int power)
 {
 	return Disquette[power][rand() % 3];
-	
 }
 
 

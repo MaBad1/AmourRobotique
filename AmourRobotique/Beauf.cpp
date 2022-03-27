@@ -15,6 +15,15 @@ Beauf::Beauf(string n, int h, int f, int e, bool k,int x, int l)
 	setInv(x);
 	setLourdeur(l);
 
+	Disquette = {{"Contrairement à ma bagnole, toi t'as pas besoin de phare pour briller",
+		"Ton cul est tellement beau que c’est une honte que tu doives t’assoir dessus.",
+		"Je suis pas basketeur pourtant je pourrais bien mettre la main au panier"},
+		{"Ton père est un voleur, il a volé toutes les autoroutes de France pour les mettre dans ta chatte.",
+		"Si ta jambe droite c'est Noël et ta jambe gauche le 31 décembre j'me taperais bien une bouffe entre les fêtes",
+		"C'est pas parce qu'il y a un gardien qu'on ne peut pas marquer de but."},
+		{"Tes yeux sont si profond que je peux voir l'intérieur de ta chatte",
+		"Elles sont jolies tes dents elle ferait un beau collier au tour de ma bite",
+		"Les mauvaises langues parlent, les bonnes donnent des orgames."} };
 }
 
 int Beauf::getLourdeur() const

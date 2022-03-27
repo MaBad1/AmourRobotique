@@ -13,6 +13,7 @@ private:
 	int rateau;//L'attaque des adversaires
 	int seduction; //Barre de vie
 	bool ko;//En Vie ou mort
+	vector<vector<string>> Rateau;
 
 public:
 
