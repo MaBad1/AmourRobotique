@@ -87,21 +87,32 @@ void attackjoueur(Personnage& p, Enemy& e1, Enemy& e2, Enemy& e3)
 			cin >> choixItem;
 			switch (choixItem) {
 			case 1:
+				p.use(Fleur);
 				break;
 
 			case 2:
+				p.use(Bague);
+
 				break;
 
 			case 3:
+				p.use(Capote);
+
 				break;
 
 			case 4:
+				p.use(Video);
+
 				break;
 
 			case 5:
+				p.use(Fouet);
+
 				break;
 
 			case 6:
+				p.use(Menottes);
+
 				break;
 
 			}
