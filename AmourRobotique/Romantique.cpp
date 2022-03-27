@@ -149,6 +149,7 @@ void Romantique::use(Objet o)
 
 ostream& operator<<(ostream& os, Romantique const& p)
 {
+	//A modifier ??
 	os << "--- " << p.getName() << " ---" << endl;
 	os << "Vie : " << p.getHealth() << endl;
 	os << "Flirt : " << p.getFlirt() << endl;

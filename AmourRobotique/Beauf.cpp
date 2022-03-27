@@ -142,6 +142,7 @@ void Beauf::use(Objet o)
 
 ostream& operator<<(ostream& os, Beauf const& p)
 {
+	//A modifier ??
 	os << "--- " << p.getName() << " ---" << endl;
 	os << "Vie : " << p.getHealth() << endl;
 	os << "Flirt : " << p.getFlirt() << endl;
