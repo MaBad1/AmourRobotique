@@ -54,7 +54,7 @@ void Enemy::setRateau(int r)
 
 int Enemy::getSeduction() const
 {
-	return 0;
+	return seduction;
 }
 //On récupère la vie de notre Enemy
 //Si celle-ci n'est pas comprise entre 0 et 150, elle est affiché !
@@ -63,7 +63,7 @@ void Enemy::setSeduction(int s)
 	if (s < 0 || s > 150)
 	{
 		seduction = 80;
-		cout << "Unacceptable ego !" << endl;
+		cout << "Unacceptable seduction !" << endl;
 	}
 	else {
 		seduction = s;

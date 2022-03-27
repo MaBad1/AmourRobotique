@@ -69,7 +69,7 @@ void loot(Personnage& p, Objet o) // On utilise une copie des objets pour garder
 
 
 
-void attackjoueur(Personnage& p, Enemy& e1, Enemy& e2, Enemy& e3)
+void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 {
 	int cible = 0;
 
@@ -89,57 +89,33 @@ void attackjoueur(Personnage& p, Enemy& e1, Enemy& e2, Enemy& e3)
 			case 1:
 				p.use(Fleur);
 				break;
-
 			case 2:
 				p.use(Bague);
-
 				break;
-
 			case 3:
 				p.use(Capote);
-
 				break;
-
 			case 4:
 				p.use(Video);
-
 				break;
-
 			case 5:
 				p.use(Fouet);
 
 				break;
-
 			case 6:
 				p.use(Menottes);
-
 				break;
-
 			}
-
+			cout << p << endl;
 		}
-
-		if (choixObjet == 2)
-		{
-			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "2." << e2.getName() << "3." << e3.getName() << endl;
-			cin >> cible; //ciblage de l'énemi
-			if (cible == 1)
-			{
-				int choixP = 0;//initialisation du choix
 				if (p.getKo() == false) {
 					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
 					cin >> choixP;
 					//Choix de l'attack
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
-					}
+						p.disquetteBourrinL(e1);
 					if (choixP == 2) {
-						cout << "ATTACK Moyenne" << endl;
-					}
-					if (choixP == 3) {
-						cout << "ATTACK Forte" << endl;
-					}
-				}
 
 			}
 			if (cible == 2)
@@ -152,12 +128,21 @@ void attackjoueur(Personnage& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					//Choix de l'attack
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
+						p.disquetteBourrinL(e2);
+						cout << e2 << endl << endl;
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
+						p.disquetteBourrinM(e2);
+						cout << e2 << endl << endl;
+
 					}
 					if (choixP == 3) {
 						cout << "ATTACK Forte" << endl;
+						p.disquetteBourrinXL(e2);
+						cout << e2 << endl << endl;
+
+
 					}
 				}
 
@@ -174,12 +159,263 @@ void attackjoueur(Personnage& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					//Choix de l'attack
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
+						p.disquetteBourrinL(e3);
+						cout << e3 << endl << endl;
+
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
+						p.disquetteBourrinM(e3);
+						cout << e3 << endl << endl;
+
 					}
 					if (choixP == 3) {
 						cout << "ATTACK Forte" << endl;
+						p.disquetteBourrinXL(e3);
+						cout << e3 << endl << endl;
+
+
+					}
+				}
+
+			}
+
+		}
+	}
+}
+void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
+{
+	int cible = 0;
+
+	if (p.getKo() == false) 
+	{
+		int choixObjet = 0;
+		cout << p << endl;
+		cout << "1.Objet 2.Disquettes" << endl;
+		cin >> choixObjet;
+		if (choixObjet ==1) 
+		{
+			int choixItem;
+			cout << "Choisisez un objet ï¿½ utiliser :" << endl;
+			cout << "1: Fleur 2:Bague 3:Capote 4:Video de Bigard 5:Fouet 6:Menottes" << endl;
+			cin >> choixItem;
+			switch (choixItem) {
+			case 1:
+				p.use(Fleur);
+				break;
+			case 2:
+				p.use(Bague);
+				break;
+			case 3:
+				p.use(Capote);
+				break;
+			case 4:
+				p.use(Video);
+				break;
+			case 5:
+				p.use(Fouet);
+				break;
+			case 6:
+				p.use(Menottes);
+				break;
+			}
+			cout << p << endl;
+		}
+
+		if (choixObjet == 2)
+		{
+			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "2." << e2.getName() << "3." << e3.getName() << endl;
+			cin >> cible; //ciblage de l'ï¿½nemi
+			if (cible == 1)
+			{
+				int choixP = 0;//initialisation du choix
+				if (p.getKo() == false) {
+					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cin >> choixP;
+					//Choix de l'attack
+					if (choixP == 1) {
+						cout << "ATTACK Faible" << endl;
+						p.disquetteRomantiqueL(e1);
+					}
+					if (choixP == 2) {
+						cout << "ATTACK Moyenne" << endl;
+						p.disquetteRomantiqueM(e1);
+
+					}
+					if (choixP == 3) {
+						cout << "ATTACK Forte" << endl;
+						p.disquetteRomantiqueXL(e1);
+
+					}
+				}
+
+			}
+			if (cible == 2)
+			{
+				int choixP = 0;//initialisation du choix
+
+				if (p.getKo() == false) {
+					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cin >> choixP;
+					//Choix de l'attack
+					if (choixP == 1) {
+						cout << "ATTACK Faible" << endl;
+						p.disquetteRomantiqueL(e2);
+					}
+					if (choixP == 2) {
+						cout << "ATTACK Moyenne" << endl;
+						p.disquetteRomantiqueM(e2);
+
+					}
+					if (choixP == 3) {
+						cout << "ATTACK Forte" << endl;
+						p.disquetteRomantiqueXL(e2);
+
+					}
+				}
+
+			}
+			if (cible == 3)
+			{
+				int choixP = 0;//initialisation du choix
+
+				if (p.getKo() == false) {
+
+
+					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cin >> choixP;
+					//Choix de l'attack
+					if (choixP == 1) {
+						cout << "ATTACK Faible" << endl;
+						p.disquetteRomantiqueL(e3);
+					}
+					if (choixP == 2) {
+						cout << "ATTACK Moyenne" << endl;
+						p.disquetteRomantiqueM(e3);
+
+					}
+					if (choixP == 3) {
+						cout << "ATTACK Forte" << endl;
+						p.disquetteRomantiqueXL(e3);
+
+					}
+				}
+
+			}
+
+		}
+	}
+}
+void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
+{
+	int cible = 0;
+
+	if (p.getKo() == false) 
+	{
+		int choixObjet = 0;
+		cout << p << endl;
+		cout << "1.Objet 2.Disquettes" << endl;
+		cin >> choixObjet;
+		if (choixObjet ==1) 
+		{
+			int choixItem;
+			cout << "Choisisez un objet ï¿½ utiliser :" << endl;
+			cout << "1: Fleur 2:Bague 3:Capote 4:Video de Bigard 5:Fouet 6:Menottes" << endl;
+			cin >> choixItem;
+			switch (choixItem) {
+			case 1:
+				p.use(Fleur);
+				break;
+			case 2:
+				p.use(Bague);
+				break;
+			case 3:
+				p.use(Capote);
+				break;
+			case 4:
+				p.use(Video);
+				break;
+			case 5:
+				p.use(Fouet);
+				break;
+			case 6:
+				p.use(Menottes);
+				break;
+			}
+			cout << p << endl;
+		}
+
+		if (choixObjet == 2)
+		{
+			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "2." << e2.getName() << "3." << e3.getName() << endl;
+			cin >> cible; //ciblage de l'énemi
+			if (cible == 1)
+			{
+				int choixP = 0;//initialisation du choix
+				if (p.getKo() == false) {
+					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cin >> choixP;
+					//Choix de l'attack
+					if (choixP == 1) {
+						cout << "ATTACK Faible" << endl;
+						p.disquetteBeaufL(e1);
+					}
+					if (choixP == 2) {
+						cout << "ATTACK Moyenne" << endl;
+						p.disquetteBeaufM(e1);
+					}
+					if (choixP == 3) {
+						cout << "ATTACK Forte" << endl;
+						p.disquetteBeaufXL(e1);
+					}
+				}
+
+			}
+			if (cible == 2)
+			{
+				int choixP = 0;//initialisation du choix
+
+				if (p.getKo() == false) {
+					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cin >> choixP;
+					//Choix de l'attack
+					if (choixP == 1) {
+						cout << "ATTACK Faible" << endl;
+						p.disquetteBeaufL(e1);
+
+					}
+					if (choixP == 2) {
+						cout << "ATTACK Moyenne" << endl;
+						p.disquetteBeaufM(e1);
+					}
+					if (choixP == 3) {
+						cout << "ATTACK Forte" << endl;
+						p.disquetteBeaufXL(e1);
+					}
+				}
+
+			}
+			if (cible == 3)
+			{
+				int choixP = 0;//initialisation du choix
+
+				if (p.getKo() == false) {
+
+
+					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cin >> choixP;
+					//Choix de l'attack
+					if (choixP == 1) {
+						cout << "ATTACK Faible" << endl;
+						p.disquetteBeaufL(e1);
+					}
+					if (choixP == 2) {
+						cout << "ATTACK Moyenne" << endl;
+						p.disquetteBeaufM(e1);
+					}
+					if (choixP == 3) {
+						cout << "ATTACK Forte" << endl;
+						p.disquetteBeaufXL(e1);
 					}
 				}
 
@@ -191,6 +427,7 @@ void attackjoueur(Personnage& p, Enemy& e1, Enemy& e2, Enemy& e3)
 
 void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 {
+	cout << e << endl;
 	int cible = 1 + rand() % 3;
 	if (e.getKo() == false) 
 	{
@@ -264,11 +501,17 @@ int main() {
 	Romantique r1("Mathieu", 200, 200, 100, false, 5, 0);
 	Beauf bof1("Giovan", 200, 200, 100, false, 5, 0);
 
-	Enemy e1("Stefanie", 10, 100, false);
-	Enemy e2("Gwendoline", 10, 100, false);
-	Enemy e3("Patricia", 10, 100, false);
+	Enemy e1("Stefanie", 30, 110, false);
+	Enemy e2("Gwendoline", 30, 110, false);
+	Enemy e3("Patricia", 30, 110, false);
 
-	
+	loot(b1, Fleur);
+	loot(b1, Bague);
+	loot(b1, Capote);
+	loot(b1, Video);
+	loot(b1, Fouet);
+	loot(b1, Menottes);
+
 
 	cout << p1;
 	openInv(p1.inventaire);
@@ -384,9 +627,9 @@ int main() {
 		//Boucle de Combat
 		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0) {
 
-			attackjoueur(b1, e1, e2, e3);
-			attackjoueur(r1, e1, e2, e3);
-			attackjoueur(bof1, e1, e2, e3);
+			attackBourrin(b1, e1, e2, e3);
+			attackRomantique(r1, e1, e2, e3);
+			attackBeauf(bof1, e1, e2, e3);
 			cout << "FIN DE TOUR JOUEUR" << endl;
 
 			attackenemy(b1, r1, bof1, e1);
@@ -406,9 +649,12 @@ int main() {
 		//Boucle de Combat
 		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0) {
 
-			attackjoueur(b1, e1, e2, e3);
-			attackjoueur(r1, e1, e2, e3);
-			attackjoueur(bof1, e1, e2, e3);
+			attackBourrin(b1, e1, e2, e3);
+
+			attackRomantique(r1, e1, e2, e3);
+
+			attackBeauf(bof1, e1, e2, e3);
+
 			cout << "FIN DE TOUR JOUEUR" << endl;
 
 			attackenemy(b1, r1, bof1, e1);
@@ -428,9 +674,9 @@ int main() {
 		//Boucle de Combat
 		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0) {
 
-			attackjoueur(b1, e1, e2, e3);
-			attackjoueur(r1, e1, e2, e3);
-			attackjoueur(bof1, e1, e2, e3);
+			attackBourrin(b1, e1, e2, e3);
+			attackRomantique(r1, e1, e2, e3);
+			attackBeauf(bof1, e1, e2, e3);
 			cout << "FIN DE TOUR JOUEUR" << endl;
 
 			attackenemy(b1, r1, bof1, e1);
@@ -446,19 +692,6 @@ int main() {
 
 
 	cout << endl << endl << "--------Fin des tests de zone-----" << endl << endl;
-
+	
 	//Boucle de Combat
-	while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0) {
-
-		attackjoueur(b1, e1, e2, e3);
-		attackjoueur(r1, e1, e2, e3);
-		attackjoueur(bof1, e1, e2, e3);
-		cout << "FIN DE TOUR JOUEUR" << endl;
-
-		attackenemy(b1,r1,bof1,e1);
-		attackenemy(b1, r1, bof1, e2);
-		attackenemy(b1, r1, bof1, e3);
-		cout << endl << "FIN DE TOUR ENEMIE" << endl;
-
-	}
 }
