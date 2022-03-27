@@ -2,7 +2,7 @@
 
 Bourrin::Bourrin()
 {
-	setForceur(50);
+	setForceur(100);
 }
 
 Bourrin::Bourrin(string n, int h, int f, int e, bool k,int x, int fo)
@@ -14,6 +14,16 @@ Bourrin::Bourrin(string n, int h, int f, int e, bool k,int x, int fo)
 	setKo(k);
 	setInv(x);
 	setForceur(fo);
+
+	Disquette = { {"Je te défoncerai bien comme un BigMac",
+		"Dommage qu'il n'y ait pas Mickey sur ton T-Shirt, ça t'aurait fait des seins animés !",
+		"Ton décolleté c'est comme un paquet de Chocapic, quand on le regarde on a envie de fourrer sa main dedans."},
+		{"Je crois bien que j'ai eu le coup de foutre",
+		"Toi tes un canon et moi un boulet... quand est ce que je rentre en toi ?",
+		"Je te défoncerai bien comme un BigMac"},
+		{"Je suis pas chinois mais je te boufferai bien la chatte",
+		"Je voudrai que tu sois mon réveil pour t'éclater tout les matins",
+		"Excuse moi, tu serais pas l'intro de Netflix ? Parce que j'ai trop envie de te sauter."} };
 }
 
 int Bourrin::getForceur() const
@@ -23,7 +33,7 @@ int Bourrin::getForceur() const
 
 void Bourrin::setForceur(int fo)
 {
-	if (fo < 0 || fo > 50)
+	if (fo < 0 || fo > 100)
 	{
 		forceur = 0;
 		cout << "Unacceptable Forcing !" << endl;

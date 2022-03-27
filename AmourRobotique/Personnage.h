@@ -8,13 +8,15 @@ using namespace std;
 class Personnage
 {
 private:
-
 	string name;
 	int health;//Nombre de revive
 	int flirt;//L'attaque des adversaires
 	int ego;//Barre de vie
 	bool ko;//En Vie ou mort
 	int place;//id de la zone où le joueur se trouve
+
+protected:
+	vector<vector<string>> Disquette;
 
 
 public:
@@ -44,6 +46,8 @@ public:
 
 	int getPlace() const;
 	void setPlace(int p);
+
+	string getRandomDisquette(int power);
 
 	//Setter de l'inventaire pour le créer aux dimenstions voulues.
 	void setInv(int x);

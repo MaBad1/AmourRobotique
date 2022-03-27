@@ -10,8 +10,8 @@ Enemy::Enemy(string n, int r, int s, bool k)
 	setRateau(r);
 	setSeduction(s);
 	setKo(k);
+	Rateau = { {"","",""}, {"","",""}, {"","",""} };
 }
-
 
 string Enemy::getName() const
 {

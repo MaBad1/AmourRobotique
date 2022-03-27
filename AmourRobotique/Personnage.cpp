@@ -80,7 +80,7 @@ int Personnage::getEgo() const
 
 void Personnage::setEgo(int e)
 {
-	if (e < 0 || e > 100)
+	if (e < 0 || e > 200)
 	{
 		ego = 0;
 		cout << "Unacceptable ego !" << endl;
@@ -108,6 +108,12 @@ int Personnage::getPlace() const
 void Personnage::setPlace(int p)
 {
 	place = p;
+}
+
+string Personnage::getRandomDisquette(int power)
+{
+	return Disquette[power][rand() % 3];
+	
 }
 
 

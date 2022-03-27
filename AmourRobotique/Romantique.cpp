@@ -2,7 +2,7 @@
 
 Romantique::Romantique()
 {
-	setSensibilite(50);
+	setSensibilite(100);
 }
 
 Romantique::Romantique(string n, int h, int f, int e, bool k, int x, int s)
@@ -15,6 +15,15 @@ Romantique::Romantique(string n, int h, int f, int e, bool k, int x, int s)
 	setInv(x);
 	setSensibilite(s);
 	
+	Disquette = { {"On devrait t'arrêter pour excès de beauté.",
+		"Salu.j'ai pas mis le \"t\" parceque je veux le prendre avec toi.",
+		"Depuis le 14 mars on peut sortir sans pass, mais moi je peux pas sortir sans toi."},
+		{"Je viens de voir qu'on envoyait des avions de chasse en Ukraine, mais moi je veux pas que tu partes",
+		"Ton nom c'est Google ? Parce que tu es tout ce que je recherche",
+		"En vrai je te met un 9/10 car je suis le +1 qu'il te manque"},
+		{"Excuse moi t'aurais pas l'heure ? Parce que depuis que je t'ai vu j'ai perdu la notion du temps.",
+		"Il y a tellement de soleil dans tes yeux que je bronze quand tu me regardes",
+		"J'ai besoin d'un bouche à bouche car je viens de me noyer dans ton regard."} };
 }
 
 int Romantique::getSensibilite() const
@@ -24,7 +33,7 @@ int Romantique::getSensibilite() const
 
 void Romantique::setSensibilite(int s)
 {
-	if (s < 0 || s > 50)
+	if (s < 0 || s > 100)
 	{
 		sensibilite = 0;
 		cout << "Unacceptable Sensibilite !" << endl;

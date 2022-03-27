@@ -5,6 +5,7 @@
 #include<time.h>
 #include "Zone.h"
 #include <list>
+#include <Windows.h>
 
 //Fonction pour ouvrir l'inventaire.
 void openInv(vector<vector<int>>& inventaire)
@@ -534,12 +535,13 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 }
 
 int main() {
+	SetConsoleOutputCP(1252);
 
 	Personnage p1("Anto", 200, 200, 100, false, 5, 0);
 
-	Bourrin b1("Anto", 200, 200, 100, false, 5, 0);
-	Romantique r1("Mathieu", 200, 200, 100, false, 5, 0);
-	Beauf bof1("Giovan", 200, 200, 100, false, 5, 0);
+	Bourrin b1("Anto", 3, 20, 100, false, 5, 0);
+	Romantique r1("Mathieu", 3, 15, 150, false, 5, 100);
+	Beauf bof1("Giovan", 3, 20, 100, false, 5, 0);
 
 	Enemy e1("Stefanie", 30, 110, false);
 	Enemy e2("Gwendoline", 30, 110, false);

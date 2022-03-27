@@ -2,7 +2,7 @@
 
 Beauf::Beauf()
 {
-	setLourdeur(50);
+	setLourdeur(100);
 }
 
 Beauf::Beauf(string n, int h, int f, int e, bool k,int x, int l)
