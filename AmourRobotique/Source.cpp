@@ -77,7 +77,7 @@ void attackjoueur(Personnage& p, Enemy& e1, Enemy& e2, Enemy& e3)
 	{
 		int choixObjet = 0;
 		cout << p << endl;
-		cout << "1.Objet 2.Sort" << endl;
+		cout << "1.Objet 2.Disquettes" << endl;
 		cin >> choixObjet;
 		if (choixObjet ==1) 
 		{
