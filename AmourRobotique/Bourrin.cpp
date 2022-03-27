@@ -35,14 +35,80 @@ void Bourrin::setForceur(int fo)
 
 void Bourrin::disquetteBourrinL(Enemy& enemy)
 {
+	if (getForceur() >= 100) {
+		cout << "Frappe moi !" << endl;
+	}
+	else {
+		//Incrémentation de la lourdeur
+		setForceur(getForceur() + 8);
+
+		srand(time(NULL));
+		for (int i = 0; i < 3; i++) {
+			//Le random pour creer "un poucentage" de chacal
+			int SortAttaque;
+			SortAttaque = (rand() % 100) + 1;
+
+			if (SortAttaque < 90) {
+				enemy.setSeduction(enemy.getSeduction() - (getFlirt() / 4));
+				cout << "Réussis  ";
+			}
+			else {
+				cout << "Loupé  ";
+			}
+		}
+	}
 }
 
 void Bourrin::disquetteBourrinM(Enemy& enemy)
 {
+	if (getForceur() >= 100) {
+		cout << "Frappe moi !" << endl;
+	}
+	else {
+		//Incrémentation de la lourdeur
+		setForceur(getForceur() + 15);
+
+		srand(time(NULL));
+		for (int i = 0; i < 3; i++) {
+			//Le random pour creer "un poucentage" de chacal
+			int SortAttaque;
+			SortAttaque = (rand() % 100) + 1;
+
+			if (SortAttaque < 80) {
+				enemy.setSeduction(enemy.getSeduction() - (getFlirt() / 3));
+				cout << "Réussis  ";
+			}
+			else {
+				cout << "Loupé  ";
+			}
+		}
+	}
 }
 
 void Bourrin::disquetteBourrinXL(Enemy& enemy)
 {
+	if (getForceur() >= 100) {
+		cout << "Frappe moi !" << endl;
+	}
+	else {
+		//Incrémentation de la lourdeur
+		setForceur(getForceur() + 20);
+
+		srand(time(NULL));
+		for (int i = 0; i < 3; i++) {
+			//Le random pour creer "un poucentage" de chacal
+			int SortAttaque;
+			SortAttaque = (rand() % 100) + 1;
+
+			if (SortAttaque < 45) {
+				enemy.setSeduction(enemy.getSeduction() - (getFlirt() / 2));
+				cout << "Réussis  ";
+			}
+			else {
+				cout << "Loupé  ";
+			}
+		}
+	}
 }
 
 void Bourrin::use(Objet o)

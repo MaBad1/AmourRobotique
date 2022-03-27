@@ -36,14 +36,80 @@ void Romantique::setSensibilite(int s)
 
 void Romantique::disquetteRomantiqueL(Enemy& enemy)
 {
+	if (getSensibilite() <= 0) {
+		cout << "La politesse, ras le cul, on baise ?" << endl;
+	}
+	else {
+		//Incrémentation de la lourdeur
+		setSensibilite(getSensibilite() - 8);
+
+		srand(time(NULL));
+		for (int i = 0; i < 3; i++) {
+			//Le random pour creer "un poucentage" de chacal
+			int SortAttaque;
+			SortAttaque = (rand() % 100) + 1;
+
+			if (SortAttaque < 90) {
+				enemy.setSeduction(enemy.getSeduction() - (getFlirt() / 4));
+				cout << "Réussis  ";
+			}
+			else {
+				cout << "Loupé  ";
+			}
+		}
+	}
 }
 
 void Romantique::disquetteRomantiqueM(Enemy& enemy)
 {
+	if (getSensibilite() <= 0) {
+		cout << "La politesse, ras le cul, on baise ?" << endl;
+	}
+	else {
+		//Incrémentation de la lourdeur
+		setSensibilite(getSensibilite() - 15);
+
+		srand(time(NULL));
+		for (int i = 0; i < 3; i++) {
+			//Le random pour creer "un poucentage" de chacal
+			int SortAttaque;
+			SortAttaque = (rand() % 100) + 1;
+
+			if (SortAttaque < 80) {
+				enemy.setSeduction(enemy.getSeduction() - (getFlirt() / 3));
+				cout << "Réussis  ";
+			}
+			else {
+				cout << "Loupé  ";
+			}
+		}
+	}
 }
 
 void Romantique::disquetteRomantiqueXL(Enemy& enemy)
 {
+	if (getSensibilite() <= 0) {
+		cout << "La politesse, ras le cul, on baise ?" << endl;
+	}
+	else {
+		//Incrémentation de la lourdeur
+		setSensibilite(getSensibilite() - 20);
+
+		srand(time(NULL));
+		for (int i = 0; i < 3; i++) {
+			//Le random pour creer "un poucentage" de chacal
+			int SortAttaque;
+			SortAttaque = (rand() % 100) + 1;
+
+			if (SortAttaque < 45) {
+				enemy.setSeduction(enemy.getSeduction() - (getFlirt() / 2));
+				cout << "Réussis  ";
+			}
+			else {
+				cout << "Loupé  ";
+			}
+		}
+	}
 }
 
 //Méthode pour utiliser les objets.

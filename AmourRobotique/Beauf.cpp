@@ -36,41 +36,78 @@ void Beauf::setLourdeur(int l)
 
 void Beauf::disquetteBeaufL(Enemy& enemy)
 {
-	if (getLourdeur() == 100) {
+	if (getLourdeur() >= 100) {
 		cout << "Je t'aime.. Oops" << endl;	
 	}
 	else {
-		setFlirt(getFlirt() - 50);
-		int bonus = getLourdeur() + 5;
+		//Incrémentation de la lourdeur
+		setLourdeur(getLourdeur() + 8);
+
+		srand(time(NULL));
+		for (int i = 0; i < 3; i++) {
+			//Le random pour creer "un poucentage" de chacal
+			int SortAttaque;
+			SortAttaque = (rand() % 100) + 1;
+
+			if (SortAttaque < 90) {
+				enemy.setSeduction(enemy.getSeduction() - (getFlirt() / 4));
+				cout << "Réussis  ";
+			}
+			else {
+				cout << "Loupé  ";
+			}
+		}
 	}
 }
 
 void Beauf::disquetteBeaufM(Enemy& enemy)
 {
-	if (getLourdeur() == 100) {
+	if (getLourdeur() >= 100) {
 		cout << "Je t'aime.. Oops" << endl;
 	}
 	else {
-		setLourdeur(getLourdeur() - 50);
-		int bonus = getFlirt() + 25;
+		//Incrémentation de la lourdeur
+		setLourdeur(getLourdeur() + 15);
+
+		srand(time(NULL));
+		for (int i = 0; i < 3; i++) {
+			//Le random pour creer "un poucentage" de chacal
+			int SortAttaque;
+			SortAttaque = (rand() % 100) + 1;
+
+			if (SortAttaque < 80) {
+				enemy.setSeduction(enemy.getSeduction() - (getFlirt() / 3));
+				cout << "Réussis  ";
+			}
+			else {
+				cout << "Loupé  ";
+			}
+		}
 	}
 }
 
 void Beauf::disquetteBeaufXL(Enemy& enemy)
 {
-	if (getLourdeur() == 100) {
+	if (getLourdeur() >= 100) {
 		cout << "Je t'aime.. Oops" << endl;
 	}
 	else {
+		//Incrémentation de la lourdeur
+		setLourdeur(getLourdeur() + 20);
 
-		srand((unsigned)time(0));
-		int AuSort;
-		AuSort = (rand() % 100) + 1;;
-		srand((unsigned)time(0));
+		srand(time(NULL));
+		for (int i = 0; i < 3; i++) {
+			//Le random pour creer "un poucentage" de chacal
+			int SortAttaque;
+			SortAttaque = (rand() % 100) + 1;
 
-		int damage = getFlirt();
-		if (damage > 0) {
-			enemy.setSeduction(enemy.getSeduction() - damage);
+			if (SortAttaque < 45) {
+				enemy.setSeduction(enemy.getSeduction() - (getFlirt() / 2));
+				cout << "Réussis  ";
+			}
+			else {
+				cout << "Loupé  ";
+			}
 		}
 	}
 }
