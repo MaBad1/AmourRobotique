@@ -122,17 +122,17 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
 						p.disquetteBourrinL(e1);
-						cout << e1 << endl << endl;
+						cout << endl << e1 << endl;
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
 						p.disquetteBourrinM(e1);
-						cout << e1 << endl << endl;
+						cout << endl << e1 << endl;
 					}
 					if (choixP == 3) {
 						cout << "ATTACK Forte" << endl;
 						p.disquetteBourrinXL(e1);
-						cout << e1 << endl << endl;
+						cout << endl << e1 << endl;
 					}
 				}
 
@@ -148,18 +148,18 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
 						p.disquetteBourrinL(e2);
-						cout << e2 << endl << endl;
+						cout << endl << e2 << endl;
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
 						p.disquetteBourrinM(e2);
-						cout << e2 << endl << endl;
+						cout << endl << e2 << endl;
 
 					}
 					if (choixP == 3) {
 						cout << "ATTACK Forte" << endl;
 						p.disquetteBourrinXL(e2);
-						cout << e2 << endl << endl;
+						cout << endl << e2 << endl;
 
 
 					}
@@ -179,21 +179,19 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
 						p.disquetteBourrinL(e3);
-						cout << e3 << endl << endl;
+						cout << endl << e3 << endl;
 
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
 						p.disquetteBourrinM(e3);
-						cout << e3 << endl << endl;
+						cout << endl << e3 << endl;
 
 					}
 					if (choixP == 3) {
 						cout << "ATTACK Forte" << endl;
 						p.disquetteBourrinXL(e3);
-						cout << e3 << endl << endl;
-
-
+						cout << endl << e3 << endl;
 					}
 				}
 
@@ -255,15 +253,21 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
 						p.disquetteRomantiqueL(e1);
+						cout << endl << e1 << endl;
+
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
 						p.disquetteRomantiqueM(e1);
+						cout << endl << e1 << endl;
+
 
 					}
 					if (choixP == 3) {
 						cout << "ATTACK Forte" << endl;
 						p.disquetteRomantiqueXL(e1);
+						cout << endl << e1 << endl;
+
 
 					}
 				}
@@ -280,16 +284,18 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
 						p.disquetteRomantiqueL(e2);
+						cout<< endl << e2 << endl;
+
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
 						p.disquetteRomantiqueM(e2);
-
+						cout << endl << e2 << endl;
 					}
 					if (choixP == 3) {
 						cout << "ATTACK Forte" << endl;
 						p.disquetteRomantiqueXL(e2);
-
+						cout << endl << e2 << endl;
 					}
 				}
 
@@ -378,15 +384,20 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
 						p.disquetteBeaufL(e1);
+						cout << endl << e1 << endl;
 
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
 						p.disquetteBeaufM(e1);
+						cout << endl << e1 << endl;
+
 					}
 					if (choixP == 3) {
 						cout << "ATTACK Forte" << endl;
 						p.disquetteBeaufXL(e1);
+						cout << endl << e1 << endl;
+
 					}
 				}
 
@@ -401,15 +412,21 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					//Choix de l'attack
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
-						p.disquetteBeaufL(e1);
+						p.disquetteBeaufL(e2);
+						cout << endl << e2 << endl;
+
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
-						p.disquetteBeaufM(e1);
+						p.disquetteBeaufM(e2);
+						cout << endl << e2 << endl;
+
 					}
 					if (choixP == 3) {
 						cout << "ATTACK Forte" << endl;
-						p.disquetteBeaufXL(e1);
+						p.disquetteBeaufXL(e2);
+						cout << endl << e2 << endl;
+
 					}
 				}
 
@@ -426,15 +443,20 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					//Choix de l'attack
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
-						p.disquetteBeaufL(e1);
+						p.disquetteBeaufL(e3);
+						cout << endl << e3 << endl;
+
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
-						p.disquetteBeaufM(e1);
+						p.disquetteBeaufM(e3);
+						cout << endl << e3 << endl;
+
 					}
 					if (choixP == 3) {
 						cout << "ATTACK Forte" << endl;
-						p.disquetteBeaufXL(e1);
+						p.disquetteBeaufXL(e3);
+						cout << endl << e3 << endl;
 					}
 				}
 
@@ -453,7 +475,6 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 		if (cible == 1) 
 		{
 			cout << endl << "---" << e.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
-			cout << e << endl;
 			int choixEnemie = 1 + rand() % 3;//random
 			cout << "La cible choisie " << p1.getName() << endl;
 			//Choix de l'attack
@@ -644,7 +665,7 @@ int main() {
 		//entrer la boucle de combat ici 
 		cout << "Vous rencontrez trois jolies humaines" << endl;
 		//Boucle de Combat
-		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0) {
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() +e2.getSeduction()+e3.getSeduction() > 0) {
 
 			attackBourrin(b1, e1, e2, e3);
 
@@ -669,7 +690,7 @@ int main() {
 		//entrer la boucle de combat ici 
 		cout << "Vous rencontrez trois jolies humaines" << endl;
 		//Boucle de Combat
-		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0) {
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() + e2.getSeduction() + e3.getSeduction() > 0) {
 
 			attackBourrin(b1, e1, e2, e3);
 			attackRomantique(r1, e1, e2, e3);
@@ -691,7 +712,7 @@ int main() {
 		//entrer la boucle de combat ici 
 		cout << "Vous rencontrez trois jolies humaines" << endl;
 		//Boucle de Combat
-		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0) {
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() + e2.getSeduction() + e3.getSeduction() > 0) {
 
 			attackBourrin(b1, e1, e2, e3);
 			attackRomantique(r1, e1, e2, e3);
