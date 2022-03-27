@@ -76,7 +76,7 @@ void attackjoueur(Personnage& p, Enemy& e1, Enemy& e2, Enemy& e3)
 	if (p.getKo() == false) 
 	{
 		int choixObjet = 0;
-		cout << endl << "---" << p.getName() << "---" << endl;
+		cout << p << endl;
 		cout << "1.Objet 2.Sort" << endl;
 		cin >> choixObjet;
 		if (choixObjet ==1) 
@@ -87,27 +87,21 @@ void attackjoueur(Personnage& p, Enemy& e1, Enemy& e2, Enemy& e3)
 			cin >> choixItem;
 			switch (choixItem) {
 			case 1:
-				p.use(Fleur);
 				break;
 
 			case 2:
-				p.use(Bague);
 				break;
 
 			case 3:
-				p.use(Capote);
 				break;
 
 			case 4:
-				p.use(Video);
 				break;
 
 			case 5:
-				p.use(Fouet);
 				break;
 
 			case 6:
-				p.use(Menottes);
 				break;
 
 			}
@@ -122,9 +116,6 @@ void attackjoueur(Personnage& p, Enemy& e1, Enemy& e2, Enemy& e3)
 			{
 				int choixP = 0;//initialisation du choix
 				if (p.getKo() == false) {
-
-
-					cout << endl << "---" << p.getName() << "---" << endl;
 					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
 					cin >> choixP;
 					//Choix de l'attack
@@ -145,10 +136,6 @@ void attackjoueur(Personnage& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				int choixP = 0;//initialisation du choix
 
 				if (p.getKo() == false) {
-
-
-					cout << endl << "---" << p.getName() << "---" << endl;
-
 					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
 					cin >> choixP;
 					//Choix de l'attack
@@ -170,8 +157,6 @@ void attackjoueur(Personnage& p, Enemy& e1, Enemy& e2, Enemy& e3)
 
 				if (p.getKo() == false) {
 
-
-					cout << endl << "---" << p.getName() << "---" << endl;
 
 					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
 					cin >> choixP;
@@ -198,21 +183,18 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 	int cible = 1 + rand() % 3;
 	if (e.getKo() == false) 
 	{
-
-
-
 		if (cible == 1) 
 		{
 			cout << endl << "---" << e.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
-
+			cout << e << endl;
 			int choixEnemie = 1 + rand() % 3;//random
 			cout << "La cible choisie " << p1.getName() << endl;
-
 			//Choix de l'attack
 			if (e.getKo() == false) {
 
 				if (choixEnemie == 1) {
 					cout << "ATTACK Faible" << endl;
+
 				}
 				if (choixEnemie == 2) {
 					cout << "ATTACK Moyenne" << endl;
@@ -222,17 +204,12 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 					cout << "ATTACK Forte" << endl;
 				}
 			}
-
-
 		}
 		if (cible == 2) 
 		{
-		
 			cout << endl << "---" << e.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
-
 			int choixEnemie = 1 + rand() % 3;//random
 			cout << "La cible choisie " << p2.getName() << endl;
-
 			//Choix de l'attack
 			if (e.getKo() == false) {
 
@@ -243,25 +220,17 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 					cout << "ATTACK Moyenne" << endl;
 				}
 				if (choixEnemie == 3) {
-
 					cout << "ATTACK Forte" << endl;
 				}
 			}
-
-
 		}
 		if (cible == 3) 
 		{
 			cout << endl << "---" << e.getName() << "---" << endl << "elle/il prepare son attaque" << endl;
-
 			cout << "La cible choisie " << p3.getName() << endl;
-
 			int choixEnemie = 1 + rand() % 3;//random
-
-
 			//Choix de l'attack
 			if (e.getKo() == false) {
-
 				if (choixEnemie == 1) {
 					cout << "ATTACK Faible" << endl;
 				}
@@ -269,11 +238,9 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 					cout << "ATTACK Moyenne" << endl;
 				}
 				if (choixEnemie == 3) {
-
 					cout << "ATTACK Forte" << endl;
 				}
 			}
-
 		}
 	}
 }
@@ -402,18 +369,66 @@ int main() {
 
 	if (chosen_way == 1) {//choix de la zone du torb boyaux 
 		//entrer la boucle de combat ici 
+		cout << "Vous rencontrez trois jolies humaines" << endl;
+		//Boucle de Combat
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0) {
+
+			attackjoueur(b1, e1, e2, e3);
+			attackjoueur(r1, e1, e2, e3);
+			attackjoueur(bof1, e1, e2, e3);
+			cout << "FIN DE TOUR JOUEUR" << endl;
+
+			attackenemy(b1, r1, bof1, e1);
+			attackenemy(b1, r1, bof1, e2);
+			attackenemy(b1, r1, bof1, e3);
+			cout << endl << "FIN DE TOUR ENEMIE" << endl;
+
+		}
+
 		cout << "depart du combat" << endl;
 		cout << "vous etes dans : " << endl<<zonesPossibles[0] << endl;
 	}
 
 	if (chosen_way == 2) {//choix de la zone du chupitos 
 		//entrer la boucle de combat ici 
+		cout << "Vous rencontrez trois jolies humaines" << endl;
+		//Boucle de Combat
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0) {
+
+			attackjoueur(b1, e1, e2, e3);
+			attackjoueur(r1, e1, e2, e3);
+			attackjoueur(bof1, e1, e2, e3);
+			cout << "FIN DE TOUR JOUEUR" << endl;
+
+			attackenemy(b1, r1, bof1, e1);
+			attackenemy(b1, r1, bof1, e2);
+			attackenemy(b1, r1, bof1, e3);
+			cout << endl << "FIN DE TOUR ENEMIE" << endl;
+
+		}
+
 		cout << "depart du combat bis" << endl;
 
 	}
 
 	if (chosen_way == 3) {//choix de la zone du victoria 
 		//entrer la boucle de combat ici 
+		cout << "Vous rencontrez trois jolies humaines" << endl;
+		//Boucle de Combat
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0) {
+
+			attackjoueur(b1, e1, e2, e3);
+			attackjoueur(r1, e1, e2, e3);
+			attackjoueur(bof1, e1, e2, e3);
+			cout << "FIN DE TOUR JOUEUR" << endl;
+
+			attackenemy(b1, r1, bof1, e1);
+			attackenemy(b1, r1, bof1, e2);
+			attackenemy(b1, r1, bof1, e3);
+			cout << endl << "FIN DE TOUR ENEMIE" << endl;
+
+		}
+
 		cout << "depart du combat bis bis" << endl;
 
 	}
