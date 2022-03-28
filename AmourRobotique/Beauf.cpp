@@ -49,6 +49,7 @@ void Beauf::disquetteBeaufL(Enemy& enemy)
 		cout << "Je t'aime.. Oops" << endl;	
 	}
 	else {
+		cout << getRandomDisquette(0) << endl << endl;
 		//Incrémentation de la lourdeur
 		setLourdeur(getLourdeur() + 8);
 
@@ -75,6 +76,7 @@ void Beauf::disquetteBeaufM(Enemy& enemy)
 		cout << "Je t'aime.. Oops" << endl;
 	}
 	else {
+		cout << getRandomDisquette(1) << endl << endl;
 		//Incrémentation de la lourdeur
 		setLourdeur(getLourdeur() + 15);
 
@@ -101,6 +103,7 @@ void Beauf::disquetteBeaufXL(Enemy& enemy)
 		cout << "Je t'aime.. Oops" << endl;
 	}
 	else {
+		cout << getRandomDisquette(2) << endl << endl;
 		//Incrémentation de la lourdeur
 		setLourdeur(getLourdeur() + 20);
 

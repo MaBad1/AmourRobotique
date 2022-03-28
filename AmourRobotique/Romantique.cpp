@@ -49,6 +49,8 @@ void Romantique::disquetteRomantiqueL(Enemy& enemy)
 		cout << "La politesse, ras le cul, on baise ?" << endl;
 	}
 	else {
+		
+		cout << getRandomDisquette(0) << endl << endl;
 		//Incrémentation de la lourdeur
 		setSensibilite(getSensibilite() - 8);
 
@@ -75,6 +77,7 @@ void Romantique::disquetteRomantiqueM(Enemy& enemy)
 		cout << "La politesse, ras le cul, on baise ?" << endl;
 	}
 	else {
+		cout << getRandomDisquette(1) << endl << endl;
 		//Incrémentation de la lourdeur
 		setSensibilite(getSensibilite() - 15);
 
@@ -101,6 +104,7 @@ void Romantique::disquetteRomantiqueXL(Enemy& enemy)
 		cout << "La politesse, ras le cul, on baise ?" << endl;
 	}
 	else {
+		cout << getRandomDisquette(2) << endl << endl;
 		//Incrémentation de la lourdeur
 		setSensibilite(getSensibilite() - 20);
 

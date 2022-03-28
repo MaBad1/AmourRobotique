@@ -1,5 +1,6 @@
 #include "Enemy.h"
 
+
 Enemy::Enemy()
 {
 }
@@ -10,7 +11,15 @@ Enemy::Enemy(string n, int r, int s, bool k)
 	setRateau(r);
 	setSeduction(s);
 	setKo(k);
-	Rateau = { {"","",""}, {"","",""}, {"","",""} };
+	Rateau = { {"J'ai le sida",
+		"C'est pour compenser ta petite bite ?",
+		"Je suis en réalité un homme"},
+		{"Tu as l'air super sympa. Je suis sûre que mon copain t'adorerait. Viens je vais te le présenter !",
+		"t'es comme un frère pour moi",
+		"C'est la première fois que je parle d'aussi près avec quelqu'un depuis que j'ai eu mon herpès"},
+		{"Ca te dérange si on baise avec mon frère ?",
+		"Ta bite mérite pas mon cul",
+		"Ouvre la fenêtre j'viens de lâcher une caisse"} };
 }
 
 string Enemy::getName() const
@@ -78,6 +87,71 @@ bool Enemy::getKo() const
 void Enemy::setKo(bool k)
 {
 	ko = k;
+}
+
+string Enemy::getRandomRateau(int power)
+{
+	return Rateau[power][rand() % 3];
+}
+
+void Enemy::rateauL(Personnage& enemy)
+{
+	cout << getRandomRateau(0) << endl << endl;
+	
+	srand(time(NULL));
+	for (int i = 0; i < 3; i++) {
+		//Le random pour creer "un poucentage" de chacal
+		int SortAttaque;
+		SortAttaque = (rand() % 100) + 1;
+
+		if (SortAttaque < 90) {
+			enemy.setEgo(enemy.getEgo() - (getRateau() / 4));
+			cout << "Réussis  ";
+		}
+		else {
+			cout << "Loupé  ";
+		}
+	}
+}
+
+void Enemy::rateauM(Personnage& enemy)
+{
+	cout << getRandomRateau(1) << endl << endl;
+
+	srand(time(NULL));
+	for (int i = 0; i < 3; i++) {
+		//Le random pour creer "un poucentage" de chacal
+		int SortAttaque;
+		SortAttaque = (rand() % 100) + 1;
+
+		if (SortAttaque < 80) {
+			enemy.setEgo(enemy.getEgo() - (getRateau() / 3));
+			cout << "Réussis  ";
+		}
+		else {
+			cout << "Loupé  ";
+		}
+	}
+}
+
+void Enemy::rateauXL(Personnage& enemy)
+{
+	cout << getRandomRateau(2) << endl << endl;
+
+	srand(time(NULL));
+	for (int i = 0; i < 3; i++) {
+		//Le random pour creer "un poucentage" de chacal
+		int SortAttaque;
+		SortAttaque = (rand() % 100) + 1;
+
+		if (SortAttaque < 45) {
+			enemy.setEgo(enemy.getEgo() - (getRateau() / 2));
+			cout << "Réussis  ";
+		}
+		else {
+			cout << "Loupé  ";
+		}
+	}
 }
 
 bool Enemy::operator>(Enemy& target)

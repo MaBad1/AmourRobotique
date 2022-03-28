@@ -78,13 +78,13 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 	{
 		int choixObjet = 0;
 		cout << p << endl;
-		cout << "1.Objet 2.Disquettes" << endl;
+		cout << "1.Objet   2.Disquettes" << endl;
 		cin >> choixObjet;
 		if (choixObjet ==1) 
 		{
 			int choixItem;
 			cout << "Choisisez un objet à utiliser :" << endl;
-			cout << "1: Fleur 2:Bague 3:Capote 4:Video de Bigard 5:Fouet 6:Menottes" << endl;
+			cout << "1:Fleur   2:Bague   3:Capote" << endl << "4:Video de Bigard   5:Fouet   6:Menottes" << endl;
 			cin >> choixItem;
 			switch (choixItem) {
 			case 1:
@@ -111,13 +111,13 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 
 		if (choixObjet == 2)
 		{
-			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "2." << e2.getName() << "3." << e3.getName() << endl;
+			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "  2." << e2.getName() << "  3." << e3.getName() << endl;
 			cin >> cible; //ciblage de l'énemi
 			if (cible == 1)
 			{
 				int choixP = 0;//initialisation du choix
 				if (p.getKo() == false) {
-					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cout << "1.Faible   2.Moyen   3.Forte" << endl << "Selectionner le sort" << endl;
 					cin >> choixP;
 					//Choix de l'attack
 					if (choixP == 1) {
@@ -143,7 +143,7 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				int choixP = 0;//initialisation du choix
 
 				if (p.getKo() == false) {
-					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cout << "1.Faible   2.Moyen   3.Forte" << endl << "Selectionner le sort" << endl;
 					cin >> choixP;
 					//Choix de l'attack
 					if (choixP == 1) {
@@ -174,7 +174,7 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				if (p.getKo() == false) {
 
 
-					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cout << "1.Faible   2.Moyen   3.Forte" << endl << "Selectionner le sort" << endl;
 					cin >> choixP;
 					//Choix de l'attack
 					if (choixP == 1) {
@@ -209,13 +209,13 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 	{
 		int choixObjet = 0;
 		cout << p << endl;
-		cout << "1.Objet 2.Disquettes" << endl;
+		cout << "1.Objet   2.Disquettes" << endl;
 		cin >> choixObjet;
 		if (choixObjet ==1) 
 		{
 			int choixItem;
 			cout << "Choisisez un objet à utiliser :" << endl;
-			cout << "1: Fleur 2:Bague 3:Capote 4:Video de Bigard 5:Fouet 6:Menottes" << endl;
+			cout << "1:Fleur   2:Bague   3:Capote "<< endl <<"4:Video de Bigard   5:Fouet   6:Menottes" << endl;
 			cin >> choixItem;
 			switch (choixItem) {
 			case 1:
@@ -242,13 +242,13 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 
 		if (choixObjet == 2)
 		{
-			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "2." << e2.getName() << "3." << e3.getName() << endl;
+			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "   2." << e2.getName() << "   3." << e3.getName() << endl;
 			cin >> cible; //ciblage de l'énemi
 			if (cible == 1)
 			{
 				int choixP = 0;//initialisation du choix
 				if (p.getKo() == false) {
-					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cout << "1.Faible   2.Moyen   3.Forte" << endl << "Selectionner le sort" << endl;
 					cin >> choixP;
 					//Choix de l'attack
 					if (choixP == 1) {
@@ -279,7 +279,7 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				int choixP = 0;//initialisation du choix
 
 				if (p.getKo() == false) {
-					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cout << "1.Faible   2.Moyen   3.Forte" << endl << "Selectionner le sort" << endl;
 					cin >> choixP;
 					//Choix de l'attack
 					if (choixP == 1) {
@@ -308,7 +308,7 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				if (p.getKo() == false) {
 
 
-					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cout << "1.Faible   2.Moyen   3.Forte" << endl << "Selectionner le sort" << endl;
 					cin >> choixP;
 					//Choix de l'attack
 					if (choixP == 1) {
@@ -340,13 +340,13 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 	{
 		int choixObjet = 0;
 		cout << p << endl;
-		cout << "1.Objet 2.Disquettes" << endl;
+		cout << "1.Objet    2.Disquettes" << endl;
 		cin >> choixObjet;
 		if (choixObjet ==1) 
 		{
 			int choixItem;
 			cout << "Choisisez un objet à utiliser :" << endl;
-			cout << "1: Fleur 2:Bague 3:Capote 4:Video de Bigard 5:Fouet 6:Menottes" << endl;
+			cout << "1: Fleur   2:Bague   3:Capote" << endl << "4:Video de Bigard   5:Fouet   6:Menottes" << endl;
 			cin >> choixItem;
 			switch (choixItem) {
 			case 1:
@@ -379,7 +379,7 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 			{
 				int choixP = 0;//initialisation du choix
 				if (p.getKo() == false) {
-					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cout << "1.Faible   2.Moyen   3.Forte" << endl << "Selectionner le sort" << endl;
 					cin >> choixP;
 					//Choix de l'attack
 					if (choixP == 1) {
@@ -408,7 +408,7 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				int choixP = 0;//initialisation du choix
 
 				if (p.getKo() == false) {
-					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cout << "1.Faible   2.Moyen   3.Forte" << endl << "Selectionner le sort" << endl;
 					cin >> choixP;
 					//Choix de l'attack
 					if (choixP == 1) {
@@ -439,7 +439,7 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				if (p.getKo() == false) {
 
 
-					cout << "1.Faible 2.Moyen 3. Forte" << endl << "Selectionner le sort" << endl;
+					cout << "1.Faible   2.Moyen   3.Forte" << endl << "Selectionner le sort" << endl;
 					cin >> choixP;
 					//Choix de l'attack
 					if (choixP == 1) {
@@ -543,9 +543,9 @@ int main() {
 	Romantique r1("Mathieu", 3, 15, 150, false, 5, 100);
 	Beauf bof1("Giovan", 3, 20, 100, false, 5, 0);
 
-	Enemy e1("Stefanie", 30, 110, false);
-	Enemy e2("Gwendoline", 30, 110, false);
-	Enemy e3("Patricia", 30, 110, false);
+	Enemy e1("Stefanie", 12, 110, false);
+	Enemy e2("Gwendoline", 20, 80, false);
+	Enemy e3("Patricia", 16, 100, false);
 
 	loot(b1, Fleur);
 	loot(b1, Bague);
@@ -558,10 +558,9 @@ int main() {
 	cout << p1;
 	openInv(p1.inventaire);
 
+	system("cls"); //Clean
 
 	//système de zone
-	cout << endl << endl << "--------Depart des tests de zone-----" << endl << endl;
-
 	int choixZ = 0; // création de la variable de choix de zone
 	int FinChoixZ = 0; // création de la variable de fin de boucle de choix de zone
 	int chosen_way = 0;//creation de la variable de choix de zone pour initialiser la boucle de gameplay selon le choix
@@ -589,17 +588,17 @@ int main() {
 		int FinChoixZ = 0;// création/réinitialisation à 0 de la variable de fin de choix de zone pour sortir du while plus bas
 		
 
-		cout << "le joueur :" << p1.getName() << " se trouve au départ" << endl;
+		cout << "le joueur :  " << p1.getName() << " se trouve au départ" << endl << endl;
 		
 		for (int i = 0; i < zones.size(); i++) {//recherche parmis chaque zone, qu'elle zone est accessible pour le joueur
 			if (zones[i].getNiveau() == 1) {//ici, on cherche chaque zone dont le niveau est 1 (si le joueur est dans une zone de niveau1, il faudra chercher les zones de niveau 2)
-				cout << zones[i].getName() << " est possible" << endl;//toutes les zones de niveau 1
+				cout << zones[i].getName() << " est possible " << endl << endl;//toutes les zones de niveau 1
 				zones[i].setLinked(true);//sont accessibles
 				zonesPossibles.push_back(zones[i]);//ajout de la zone dans une nouvelle liste qui ne contient que les zones possibles
 			}
 		}
 
-		cout << " taille de la liste : " << zonesPossibles.size() << endl;
+		//cout << " taille de la liste : " << zonesPossibles.size() << endl;
 		
 		if (zonesPossibles.size() == 3) {//si il y a 3 zones différentes on vient ici
 
@@ -608,8 +607,10 @@ int main() {
 				cout << "Choisissez une des zones disponibles en écrivant un chiffre entre 1 et 3" << endl;
 				cin >> choixZ;
 
+				system("cls"); //Clean
+
 				if (choixZ == 1) {//le joueur choisit la zone n°1
-					cout << "Vous entrez dans : " << zonesPossibles[0].getName() << endl;//on affiche le nom de la zone n°1 (!)attention(!) le premier élément d'une liste est toujours 0, le deuxième 1 etc...
+					cout << "Vous entrez dans : " << zonesPossibles[0].getName() << endl << endl;//on affiche le nom de la zone n°1 (!)attention(!) le premier élément d'une liste est toujours 0, le deuxième 1 etc...
 					zonesPossibles[1].setLinked(false);//on délink les autres zones car elles ne seront plus accessibles (pas besoin de comprendre ça je l'utilise pas pour l'instant)
 					zonesPossibles[2].setLinked(false);
 					chosen_way = 1;//le choix choisis est le numéro un , permet d'initialiser les boucles de jeu plus bas
@@ -665,7 +666,7 @@ int main() {
 
 	if (chosen_way == 1) {//choix de la zone du torb boyaux 
 		//entrer la boucle de combat ici 
-		cout << "Vous rencontrez trois jolies humaines" << endl;
+		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
 		//Boucle de Combat
 		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() +e2.getSeduction()+e3.getSeduction() > 0) {
 
@@ -675,65 +676,62 @@ int main() {
 
 			attackBeauf(bof1, e1, e2, e3);
 
-			cout << "FIN DE TOUR JOUEUR" << endl;
+			cout << "FIN DE TOUR JOUEUR" << endl << endl;
 
 			attackenemy(b1, r1, bof1, e1);
 			attackenemy(b1, r1, bof1, e2);
 			attackenemy(b1, r1, bof1, e3);
-			cout << endl << "FIN DE TOUR ENEMIE" << endl;
+
+			cout << endl << "FIN DE TOUR ENEMIE" << endl << endl;
 
 		}
 
-		cout << "depart du combat" << endl;
-		cout << "vous etes dans : " << endl<<zonesPossibles[0] << endl;
+		cout << "depart du combat" << endl << endl;
+		cout << "vous etes dans : " << endl <<zonesPossibles[0] << endl;
 	}
 
 	if (chosen_way == 2) {//choix de la zone du chupitos 
 		//entrer la boucle de combat ici 
-		cout << "Vous rencontrez trois jolies humaines" << endl;
+		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
 		//Boucle de Combat
 		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() + e2.getSeduction() + e3.getSeduction() > 0) {
 
 			attackBourrin(b1, e1, e2, e3);
 			attackRomantique(r1, e1, e2, e3);
 			attackBeauf(bof1, e1, e2, e3);
-			cout << "FIN DE TOUR JOUEUR" << endl;
+			cout << "FIN DE TOUR JOUEUR" << endl << endl;
 
 			attackenemy(b1, r1, bof1, e1);
 			attackenemy(b1, r1, bof1, e2);
 			attackenemy(b1, r1, bof1, e3);
-			cout << endl << "FIN DE TOUR ENEMIE" << endl;
+			cout << endl << "FIN DE TOUR ENEMIE" << endl << endl;
 
 		}
 
-		cout << "depart du combat bis" << endl;
+		cout << "depart du combat" << endl;
 
 	}
 
 	if (chosen_way == 3) {//choix de la zone du victoria 
 		//entrer la boucle de combat ici 
-		cout << "Vous rencontrez trois jolies humaines" << endl;
+		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
 		//Boucle de Combat
 		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() + e2.getSeduction() + e3.getSeduction() > 0) {
 
 			attackBourrin(b1, e1, e2, e3);
 			attackRomantique(r1, e1, e2, e3);
 			attackBeauf(bof1, e1, e2, e3);
-			cout << "FIN DE TOUR JOUEUR" << endl;
+			cout << "FIN DE TOUR JOUEUR" << endl << endl;
 
 			attackenemy(b1, r1, bof1, e1);
 			attackenemy(b1, r1, bof1, e2);
 			attackenemy(b1, r1, bof1, e3);
-			cout << endl << "FIN DE TOUR ENEMIE" << endl;
+			cout << endl << "FIN DE TOUR ENEMIE" << endl << endl;
 
 		}
 
-		cout << "depart du combat bis bis" << endl;
+		cout << "depart du combat" << endl;
 
-	}
-
-
-	cout << endl << endl << "--------Fin des tests de zone-----" << endl << endl;
-	
+	}	
 	//Boucle de Combat
 }

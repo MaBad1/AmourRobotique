@@ -49,6 +49,7 @@ void Bourrin::disquetteBourrinL(Enemy& enemy)
 		cout << "Frappe moi !" << endl;
 	}
 	else {
+		cout << getRandomDisquette(0) << endl << endl;
 		//Incrémentation de la lourdeur
 		setForceur(getForceur() + 8);
 
@@ -75,6 +76,7 @@ void Bourrin::disquetteBourrinM(Enemy& enemy)
 		cout << "Frappe moi !" << endl;
 	}
 	else {
+		cout << getRandomDisquette(1) << endl << endl;
 		//Incrémentation de la lourdeur
 		setForceur(getForceur() + 15);
 
@@ -101,6 +103,7 @@ void Bourrin::disquetteBourrinXL(Enemy& enemy)
 		cout << "Frappe moi !" << endl;
 	}
 	else {
+		cout << getRandomDisquette(2) << endl << endl;
 		//Incrémentation de la lourdeur
 		setForceur(getForceur() + 20);
 

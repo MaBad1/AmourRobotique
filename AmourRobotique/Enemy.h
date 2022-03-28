@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include "Personnage.h"
 
 using namespace std;
 
@@ -35,6 +36,12 @@ public:
 	bool getKo() const;
 	void setKo(bool k);
 
+	string getRandomRateau(int power);
+
+	void rateauL(Personnage& enemy);
+	void rateauM(Personnage& enemy);
+	void rateauXL(Personnage& enemy);
+
 	bool operator>(Enemy& target);
 
 	bool operator<(Enemy& target);
@@ -42,7 +49,4 @@ public:
 	friend ostream& operator<<(ostream& os, Enemy const& p);
 
 
-
-
 };
-
