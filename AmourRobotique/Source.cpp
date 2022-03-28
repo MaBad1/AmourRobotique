@@ -122,12 +122,12 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					//Choix de l'attack
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
-						p.disquetteBourrinL(e1);
+						p.disquetteBourrinM(e1);
 						cout << endl << e1 << endl;
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
-						p.disquetteBourrinM(e1);
+						p.disquetteBourrinL(e1);
 						cout << endl << e1 << endl;
 					}
 					if (choixP == 3) {
@@ -148,12 +148,12 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					//Choix de l'attack
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
-						p.disquetteBourrinL(e2);
+						p.disquetteBourrinM(e2);
 						cout << endl << e2 << endl;
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
-						p.disquetteBourrinM(e2);
+						p.disquetteBourrinL(e2);
 						cout << endl << e2 << endl;
 
 					}
@@ -179,13 +179,13 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					//Choix de l'attack
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
-						p.disquetteBourrinL(e3);
+						p.disquetteBourrinM(e3);
 						cout << endl << e3 << endl;
 
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
-						p.disquetteBourrinM(e3);
+						p.disquetteBourrinL(e3);
 						cout << endl << e3 << endl;
 
 					}
@@ -253,23 +253,18 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					//Choix de l'attack
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
-						p.disquetteRomantiqueL(e1);
+						p.disquetteRomantiqueM(e1);
 						cout << endl << e1 << endl;
-
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
-						p.disquetteRomantiqueM(e1);
+						p.disquetteRomantiqueL(e1);
 						cout << endl << e1 << endl;
-
-
 					}
 					if (choixP == 3) {
 						cout << "ATTACK Forte" << endl;
 						p.disquetteRomantiqueXL(e1);
 						cout << endl << e1 << endl;
-
-
 					}
 				}
 
@@ -284,13 +279,13 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					//Choix de l'attack
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
-						p.disquetteRomantiqueL(e2);
+						p.disquetteRomantiqueM(e2);
 						cout<< endl << e2 << endl;
 
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
-						p.disquetteRomantiqueM(e2);
+						p.disquetteRomantiqueL(e2);
 						cout << endl << e2 << endl;
 					}
 					if (choixP == 3) {
@@ -313,11 +308,11 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					//Choix de l'attack
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
-						p.disquetteRomantiqueL(e3);
+						p.disquetteRomantiqueM(e3);
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
-						p.disquetteRomantiqueM(e3);
+						p.disquetteRomantiqueL(e3);
 
 					}
 					if (choixP == 3) {
@@ -373,7 +368,7 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 
 		if (choixObjet == 2)
 		{
-			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "2." << e2.getName() << "3." << e3.getName() << endl;
+			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << " 2." << e2.getName() << " 3." << e3.getName() << endl;
 			cin >> cible; //ciblage de l'énemi
 			if (cible == 1)
 			{
@@ -384,13 +379,13 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					//Choix de l'attack
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
-						p.disquetteBeaufL(e1);
+						p.disquetteBeaufM(e1);
 						cout << endl << e1 << endl;
 
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
-						p.disquetteBeaufM(e1);
+						p.disquetteBeaufL(e1);
 						cout << endl << e1 << endl;
 
 					}
@@ -413,13 +408,13 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					//Choix de l'attack
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
-						p.disquetteBeaufL(e2);
+						p.disquetteBeaufM(e2);
 						cout << endl << e2 << endl;
 
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
-						p.disquetteBeaufM(e2);
+						p.disquetteBeaufL(e2);
 						cout << endl << e2 << endl;
 
 					}
@@ -444,13 +439,13 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					//Choix de l'attack
 					if (choixP == 1) {
 						cout << "ATTACK Faible" << endl;
-						p.disquetteBeaufL(e3);
+						p.disquetteBeaufM(e3);
 						cout << endl << e3 << endl;
 
 					}
 					if (choixP == 2) {
 						cout << "ATTACK Moyenne" << endl;
-						p.disquetteBeaufM(e3);
+						p.disquetteBeaufL(e3);
 						cout << endl << e3 << endl;
 
 					}
@@ -483,14 +478,24 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 
 				if (choixEnemie == 1) {
 					cout << "ATTACK Faible" << endl;
+					e.rateauM(p1);
+					cout << endl << p1<< endl;
 
 				}
 				if (choixEnemie == 2) {
 					cout << "ATTACK Moyenne" << endl;
+					e.rateauL(p1);
+					cout << endl << p1 << endl;
+
 				}
 				if (choixEnemie == 3) {
 
 					cout << "ATTACK Forte" << endl;
+
+					e.rateauXL(p1);
+					cout << endl << p1 << endl;
+
+
 				}
 			}
 		}
@@ -504,12 +509,21 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 
 				if (choixEnemie == 1) {
 					cout << "ATTACK Faible" << endl;
+					e.rateauM(p2);
+					cout << endl << p2 << endl;
+
 				}
 				if (choixEnemie == 2) {
 					cout << "ATTACK Moyenne" << endl;
+					e.rateauL(p2);
+					cout << endl << p2 << endl;
+
 				}
 				if (choixEnemie == 3) {
 					cout << "ATTACK Forte" << endl;
+					e.rateauXL(p2);
+					cout << endl << p2 << endl;
+
 				}
 			}
 		}
@@ -522,12 +536,24 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 			if (e.getKo() == false) {
 				if (choixEnemie == 1) {
 					cout << "ATTACK Faible" << endl;
+					e.rateauM(p3);
+					cout << endl << p3 << endl;
+
+
 				}
 				if (choixEnemie == 2) {
 					cout << "ATTACK Moyenne" << endl;
+					e.rateauL(p3);
+					cout << endl << p3 << endl;
+
+
 				}
 				if (choixEnemie == 3) {
 					cout << "ATTACK Forte" << endl;
+					e.rateauXL(p3);
+					cout << endl << p3 << endl;
+
+
 				}
 			}
 		}
@@ -733,5 +759,4 @@ int main() {
 		cout << "depart du combat" << endl;
 
 	}	
-	//Boucle de Combat
 }
