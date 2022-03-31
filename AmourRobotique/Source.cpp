@@ -589,64 +589,17 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 	}
 }
 
-int main() {
-	SetConsoleOutputCP(1252);
+void Choix(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int chosen_way)
+{
 
-	Personnage p1("Anto", 200, 200, 100, false, 5, 0);
-
-	Bourrin b1("Anto", 3, 20, 100, false, 5, 0);
-	Romantique r1("Mathieu", 3, 15, 150, false, 5, 100);
-	Beauf bof1("Giovan", 3, 20, 100, false, 5, 0);
-
-	Enemy e1("Stefanie", 12, 110, false);
-	Enemy e2("Gwendoline", 20, 80, false);
-	Enemy e3("Patricia", 16, 100, false);
-
-	loot(r1, Fleur);
-	loot(r1, Bague);
-	loot(bof1, Capote);
-	loot(bof1, Video);
-	loot(b1, Fouet);
-	loot(b1, Menottes);
-
-
-	
-	openInv(b1.inventaire);
-	openInv(r1.inventaire);
-	openInv(bof1.inventaire);
-
-	system("cls"); //Clean
-
-	//système de zone
-	int choixZ = 0; // création de la variable de choix de zone
-	int FinChoixZ = 0; // création de la variable de fin de boucle de choix de zone
-	int chosen_way = 0;//creation de la variable de choix de zone pour initialiser la boucle de gameplay selon le choix
-
-	Zone z1("Tord boyaux", 1, 1, 2, false);//creation d'une zone ("nom", id, Niveau, nombre de chemins suivants, lié au joueur ?)
-	Zone z2("chupitos", 2, 1, 3, false);
-	Zone z3("victoria", 3, 1, 1, false);
-	Zone z4("Alhambra", 4, 2, 2, false);//cette zone est donc une zone dédiée à une potentielle suite du premier niveau car l'attribut niveau est à 2
-	Zone z5("bockale", 5, 2, 1, false);
-
-	//cout << z1 << endl;//affichage des infos de z1
-
-	vector<Zone> zones;//creation d'un tableau avec des zones
-	zones.push_back(z1);//ajout de la première zone dans le tableau
-	zones.push_back(z2);
-	zones.push_back(z3);
-	zones.push_back(z4);
-
-	vector<Zone> zonesPossibles;//creation de la liste qui n'aura que les zones accessibles
-	
-
-	if (p1.getPlace() == 0) {//si la position du joueur 1 est de 0 (c'est à dire le spawn)
+	if (personnage.getPlace() == 0) {//si la position du joueur 1 est de 0 (c'est à dire le spawn)
 
 		int choixZ = 0; // création/réinitialisation à 0 de la variable de choix de zone
 		int FinChoixZ = 0;// création/réinitialisation à 0 de la variable de fin de choix de zone pour sortir du while plus bas
-		
 
-		cout << "le joueur :  " << p1.getName() << " se trouve au départ" << endl << endl;
-		
+
+		cout << "le joueur :  " << personnage.getName() << " se trouve au départ" << endl << endl;
+
 		for (int i = 0; i < zones.size(); i++) {//recherche parmis chaque zone, qu'elle zone est accessible pour le joueur
 			if (zones[i].getNiveau() == 1) {//ici, on cherche chaque zone dont le niveau est 1 (si le joueur est dans une zone de niveau1, il faudra chercher les zones de niveau 2)
 				cout << zones[i].getName() << " est possible " << endl << endl;//toutes les zones de niveau 1
@@ -656,7 +609,7 @@ int main() {
 		}
 
 		//cout << " taille de la liste : " << zonesPossibles.size() << endl;
-		
+
 		if (zonesPossibles.size() == 3) {//si il y a 3 zones différentes on vient ici
 
 			while (FinChoixZ == 0) {
@@ -718,8 +671,62 @@ int main() {
 			}
 		}
 	}
-		
+}
+
+
+int main() {
+	SetConsoleOutputCP(1252);
+
+	Personnage p1("Anto", 200, 200, 100, false, 5, 0);
+
+	Bourrin b1("Anto", 3, 20, 100, false, 5, 0);
+	Romantique r1("Mathieu", 3, 15, 150, false, 5, 100);
+	Beauf bof1("Giovan", 3, 20, 100, false, 5, 0);
+
+	Enemy e1("Stefanie", 12, 110, false);
+	Enemy e2("Gwendoline", 20, 80, false);
+	Enemy e3("Patricia", 16, 100, false);
+
+	loot(r1, Fleur);
+	loot(r1, Bague);
+	loot(bof1, Capote);
+	loot(bof1, Video);
+	loot(b1, Fouet);
+	loot(b1, Menottes);
+
+
 	
+	openInv(b1.inventaire);
+	openInv(r1.inventaire);
+	openInv(bof1.inventaire);
+
+	system("cls"); //Clean
+
+	//système de zone
+	int choixZ = 0; // création de la variable de choix de zone
+	int FinChoixZ = 0; // création de la variable de fin de boucle de choix de zone
+	int chosen_way = 0;//creation de la variable de choix de zone pour initialiser la boucle de gameplay selon le choix
+
+	Zone z1("Tord boyaux", 1, 1, 2, false);//creation d'une zone ("nom", id, Niveau, nombre de chemins suivants, lié au joueur ?)
+	Zone z2("chupitos", 2, 1, 3, false);
+	Zone z3("victoria", 3, 1, 1, false);
+	Zone z4("Alhambra", 4, 2, 2, false);//cette zone est donc une zone dédiée à une potentielle suite du premier niveau car l'attribut niveau est à 2
+	Zone z5("bockale", 5, 2, 1, false);
+
+	//cout << z1 << endl;//affichage des infos de z1
+
+	vector<Zone> zones;//creation d'un tableau avec des zones
+	zones.push_back(z1);//ajout de la première zone dans le tableau
+	zones.push_back(z2);
+	zones.push_back(z3);
+	zones.push_back(z4);
+
+
+	vector<Zone> zonesPossibles;//creation de la liste qui n'aura que les zones accessibles
+	
+	Choix(p1, zones, zonesPossibles, chosen_way);//
+	
+	//BOUCLES DE JEU ---------------------------------------------------
 
 	if (chosen_way == 1) {//choix de la zone du torb boyaux 
 		//entrer la boucle de combat ici 

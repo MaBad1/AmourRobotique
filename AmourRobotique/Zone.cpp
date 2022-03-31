@@ -75,6 +75,7 @@ void Zone::setLinked(bool l)
 }
 
 
+
 ostream& operator<<(ostream& os, Zone const& zo)
 {
 	os << "--- " << zo.getName() << " ---" << endl;
