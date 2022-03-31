@@ -41,6 +41,35 @@ void openInv(vector<vector<int>>& inventaire)
 		cout << endl;
 		cout << endl;
 	}
+	int Lecture = 0;
+	cout << "Choisissez le numéro d'un objet dont lire la description (ou 0 pour skip) : " << endl;
+	cin >> Lecture;
+
+	switch (Lecture) {
+	case 0:
+		cout << " "<< endl;
+		break;
+	case 1:
+		cout << "Fleur, +10 Flirt, -5 Ego." << endl;
+		break;
+	case 2:
+		cout << "Bague, +5 sensibilite, -10 Ego." << endl;
+		break;
+	case 3:
+		cout << "Capote, +10 Ego, +15 Lourdeur." << endl;
+		break;
+	case 4:
+		cout << "Video de Bigard, +5 Flirt, +10 Lourdeur." << endl;
+		break;
+	case 5:
+		cout << "Fouet, +10 Ego, +15 Forceur." << endl;
+		break;
+	case 6:
+		cout << "Menottes, +5 Flirt, +10 Forceur." << endl;
+		break;
+	default:
+		break;
+	}
 }
 
 // Création des 6 objets du jeu.
@@ -573,16 +602,18 @@ int main() {
 	Enemy e2("Gwendoline", 20, 80, false);
 	Enemy e3("Patricia", 16, 100, false);
 
-	loot(b1, Fleur);
-	loot(b1, Bague);
-	loot(b1, Capote);
-	loot(b1, Video);
+	loot(r1, Fleur);
+	loot(r1, Bague);
+	loot(bof1, Capote);
+	loot(bof1, Video);
 	loot(b1, Fouet);
 	loot(b1, Menottes);
 
 
-	cout << p1;
-	openInv(p1.inventaire);
+	
+	openInv(b1.inventaire);
+	openInv(r1.inventaire);
+	openInv(bof1.inventaire);
 
 	system("cls"); //Clean
 
