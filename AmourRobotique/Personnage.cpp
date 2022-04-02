@@ -3,7 +3,7 @@
 Personnage::Personnage()
 {
 	setName("Bouffon");
-	setHealth(50);
+	setHealth(3);
 	setFlirt(20);
 	setInv(5);
 	setPlace(0);
