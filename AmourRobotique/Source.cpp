@@ -502,7 +502,7 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 	}
 }
 void checkhealth(Personnage& p) {
-	if (p.getEgo() == 0 && p.getEgo() < 0) {
+	if (p.getEgo() == 0) {
 		p.setEgo(100);
 		p.setHealth(p.getHealth() - 1);
 	}
@@ -515,12 +515,14 @@ void checkhealth(Personnage& p) {
 //attack enemy
 void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 {
+	srand(time(NULL));
 	cout << e << endl;
 	int cible = 1 + rand() % 3;
 	if (e.getKo() == false) 
 	{
 		if (cible == 1) 
 		{
+
 			cout << endl << "---" << e.getName() << "---" << endl << "elle prepare sa riposte" << endl;
 			int choixEnemie = 1 + rand() % 3;//random
 			cout << "La cible choisie est " << p1.getName() << endl;
@@ -784,6 +786,7 @@ int main() {
 		attackenemy(b1, r1, bof1, e3);
 
 		cout << endl << "FIN DE TOUR ENEMIE" << endl << endl;
+
 	}
 	cout << "depart du combat" << endl << endl;
 
