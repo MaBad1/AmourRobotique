@@ -73,11 +73,19 @@ void Enemy::setSeduction(int s)
 	{
 		seduction = 80;
 		cout << "Unacceptable seduction !" << endl;
-		setKo(false);
+	}
+	if (s < 0 || s > 150)
+	{
+		seduction = 0;
+		cout << "Acceptable seduction !" << endl;
+	}
+	if (s == 0 || s < 0)
+	{
+		setKo(true);
 	}
 	else {
 		seduction = s;
-		setKo(true);
+
 	}
 }
 
