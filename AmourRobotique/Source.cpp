@@ -230,9 +230,8 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 		}
 	}
 	else {
-	cout << p.getName() << "n'est plus dans cette discution." << endl;
+	cout << p.getName() << " n'est plus dans cette discution." << endl;
 	}
-
 }
 void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 {
@@ -360,7 +359,7 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 		}
 	}
 	else {
-	cout << p.getName() << "n'est plus dans cette discution." << endl;
+	cout << p.getName() << " n'est plus dans cette discution." << endl;
 	}
 
 }
@@ -498,7 +497,7 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 		}
 	}
 	else {
-	cout << p.getName() << "n'est plus dans cette discution." << endl;
+	cout << p.getName() << " n'est plus dans cette discution." << endl;
 	}
 }
 void checkhealth(Personnage& p) {
@@ -517,7 +516,7 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 {
 	srand(time(NULL));
 	cout << e << endl;
-	int cible = 1 + rand() % 3;
+	int cible = 1+ rand()%3;
 	if (e.getKo() == false) 
 	{
 		if (cible == 1) 
@@ -625,7 +624,7 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 		}
 	}
 	else {
-	cout << e.getName() << "n'est plus dans cette discution." << endl;
+	cout << e.getName() << " n'est plus dans cette discution." << endl;
 	}
 }
 
