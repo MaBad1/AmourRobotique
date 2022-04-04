@@ -728,18 +728,6 @@ int main() {
 	Enemy e2("Gwendoline", 20, 80, false);
 	Enemy e3("Patricia", 16, 100, false);
 
-	loot(r1, Fleur);
-	loot(r1, Bague);
-	loot(bof1, Capote);
-	loot(bof1, Video);
-	loot(b1, Fouet);
-	loot(b1, Menottes);
-
-
-
-	openInv(b1.inventaire);
-	openInv(r1.inventaire);
-	openInv(bof1.inventaire);
 
 	system("cls"); //Clean
 
