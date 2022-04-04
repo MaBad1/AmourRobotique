@@ -7,6 +7,18 @@
 #include <list>
 #include <Windows.h>
 
+
+void Cleans()
+{
+	int h;
+	
+	cout << "Pour skip appuie sur 1" << endl;
+	cin >> h;
+	if (h == 1) 
+	{
+		system("cls"); //Clean
+	}
+}
 //Fonction pour ouvrir l'inventaire.
 void openInv(vector<vector<int>>& inventaire)
 {
@@ -107,7 +119,7 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 	{
 		int choixObjet = 0;
 		cout << p << endl;
-		cout << "1.Objet   2.Disquettes" << endl;
+		cout << "1.Objet   2.Disquettes" << endl ;
 		cin >> choixObjet;
 		if (choixObjet ==1) 
 		{
@@ -136,6 +148,7 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				break;
 			}
 			cout << p << endl;
+			Cleans();
 		}
 
 		if (choixObjet == 2)
@@ -148,21 +161,25 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				if (p.getKo() == false) {
 					cout << "1.Faible   2.Moyen   3.Forte" << endl << "Selectionner la puissance de la disquette" << endl;
 					cin >> choixP;
+
 					//Choix de l'attack
 					if (choixP == 1) {
 //						cout << "ATTACK Faible" << endl;
 						p.disquetteBourrinM(e1);
 						cout << endl << e1 << endl;
+						Cleans();
 					}
 					if (choixP == 2) {
 //						cout << "ATTACK Moyenne" << endl;
 						p.disquetteBourrinL(e1);
 						cout << endl << e1 << endl;
+						Cleans();
 					}
 					if (choixP == 3) {
 //						cout << "ATTACK Forte" << endl;
 						p.disquetteBourrinXL(e1);
 						cout << endl << e1 << endl;
+						Cleans();
 					}
 				}
 
@@ -179,18 +196,20 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 //						cout << "ATTACK Faible" << endl;
 						p.disquetteBourrinM(e2);
 						cout << endl << e2 << endl;
+						Cleans();
 					}
 					if (choixP == 2) {
 //						cout << "ATTACK Moyenne" << endl;
 						p.disquetteBourrinL(e2);
 						cout << endl << e2 << endl;
+						Cleans();
 
 					}
 					if (choixP == 3) {
 //						cout << "ATTACK Forte" << endl;
 						p.disquetteBourrinXL(e2);
 						cout << endl << e2 << endl;
-
+						Cleans();
 
 					}
 				}
@@ -210,18 +229,19 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 //						cout << "ATTACK Faible" << endl;
 						p.disquetteBourrinM(e3);
 						cout << endl << e3 << endl;
-
+						Cleans();
 					}
 					if (choixP == 2) {
 //						cout << "ATTACK Moyenne" << endl;
 						p.disquetteBourrinL(e3);
 						cout << endl << e3 << endl;
-
+						Cleans();
 					}
 					if (choixP == 3) {
 //						cout << "ATTACK Forte" << endl;
 						p.disquetteBourrinXL(e3);
 						cout << endl << e3 << endl;
+						Cleans();
 					}
 				}
 
@@ -270,6 +290,7 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				break;
 			}
 			cout << p << endl;
+			Cleans();
 		}
 
 		if (choixObjet == 2)
@@ -287,16 +308,19 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 //						cout << "ATTACK Faible" << endl;
 						p.disquetteRomantiqueM(e1);
 						cout << endl << e1 << endl;
+						Cleans();
 					}
 					if (choixP == 2) {
 //						cout << "ATTACK Moyenne" << endl;
 						p.disquetteRomantiqueL(e1);
 						cout << endl << e1 << endl;
+						Cleans();
 					}
 					if (choixP == 3) {
 //						cout << "ATTACK Forte" << endl;
 						p.disquetteRomantiqueXL(e1);
 						cout << endl << e1 << endl;
+						Cleans();
 					}
 				}
 
@@ -313,17 +337,19 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 //						cout << "ATTACK Faible" << endl;
 						p.disquetteRomantiqueM(e2);
 						cout<< endl << e2 << endl;
-
+						Cleans();
 					}
 					if (choixP == 2) {
 //						cout << "ATTACK Moyenne" << endl;
 						p.disquetteRomantiqueL(e2);
 						cout << endl << e2 << endl;
+						Cleans();
 					}
 					if (choixP == 3) {
 //						cout << "ATTACK Forte" << endl;
 						p.disquetteRomantiqueXL(e2);
 						cout << endl << e2 << endl;
+						Cleans();
 					}
 				}
 
@@ -341,16 +367,17 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					if (choixP == 1) {
 //						cout << "ATTACK Faible" << endl;
 						p.disquetteRomantiqueM(e3);
+						Cleans();
 					}
 					if (choixP == 2) {
 //						cout << "ATTACK Moyenne" << endl;
 						p.disquetteRomantiqueL(e3);
-
+						Cleans();
 					}
 					if (choixP == 3) {
 //						cout << "ATTACK Forte" << endl;
 						p.disquetteRomantiqueXL(e3);
-
+						Cleans();
 					}
 				}
 
@@ -400,6 +427,7 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				break;
 			}
 			cout << p << endl;
+			Cleans();
 		}
 
 		if (choixObjet == 2)
@@ -417,19 +445,19 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 //						cout << "ATTACK Faible" << endl;
 						p.disquetteBeaufM(e1);
 						cout << endl << e1 << endl;
-
+						Cleans();
 					}
 					if (choixP == 2) {
 //						cout << "ATTACK Moyenne" << endl;
 						p.disquetteBeaufL(e1);
 						cout << endl << e1 << endl;
-
+						Cleans();
 					}
 					if (choixP == 3) {
 //						cout << "ATTACK Forte" << endl;
 						p.disquetteBeaufXL(e1);
 						cout << endl << e1 << endl;
-
+						Cleans();
 					}
 				}
 
@@ -446,19 +474,19 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 //						cout << "ATTACK Faible" << endl;
 						p.disquetteBeaufM(e2);
 						cout << endl << e2 << endl;
-
+						Cleans();
 					}
 					if (choixP == 2) {
 //						cout << "ATTACK Moyenne" << endl;
 						p.disquetteBeaufL(e2);
 						cout << endl << e2 << endl;
-
+						Cleans();
 					}
 					if (choixP == 3) {
 //						cout << "ATTACK Forte" << endl;
 						p.disquetteBeaufXL(e2);
 						cout << endl << e2 << endl;
-
+						Cleans();
 					}
 				}
 
@@ -477,18 +505,19 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 //						cout << "ATTACK Faible" << endl;
 						p.disquetteBeaufM(e3);
 						cout << endl << e3 << endl;
-
+						Cleans();
 					}
 					if (choixP == 2) {
 //						cout << "ATTACK Moyenne" << endl;
 						p.disquetteBeaufL(e3);
 						cout << endl << e3 << endl;
-
+						Cleans();
 					}
 					if (choixP == 3) {
 //						cout << "ATTACK Forte" << endl;
 						p.disquetteBeaufXL(e3);
 						cout << endl << e3 << endl;
+						Cleans();
 					}
 				}
 
@@ -500,6 +529,7 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 	cout << p.getName() << " n'est plus dans cette discution." << endl;
 	}
 }
+
 void checkhealth(Personnage& p) {
 	if (p.getEgo() == 0) {
 		p.setEgo(100);
@@ -533,6 +563,7 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 					e.rateauM(p1);
 					checkhealth(p1);
 					cout << endl << p1<< endl;
+					Cleans();
 
 				}
 				if (choixEnemie == 2) {
@@ -540,7 +571,7 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 					e.rateauL(p1);
 					checkhealth(p1);
 					cout << endl << p1 << endl;
-
+					Cleans();
 				}
 				if (choixEnemie == 3) {
 
@@ -549,7 +580,7 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 					e.rateauXL(p1);
 					checkhealth(p1);
 					cout << endl << p1 << endl;
-
+					Cleans();
 
 				}
 			}
@@ -568,21 +599,21 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 					e.rateauM(p2);
 					checkhealth(p2);
 					cout << endl << p2 << endl;
-
+					Cleans();
 				}
 				if (choixEnemie == 2) {
 					cout << "ATTACK Moyenne" << endl;
 					e.rateauL(p2);
 					checkhealth(p2);
 					cout << endl << p2 << endl;
-
+					Cleans();
 				}
 				if (choixEnemie == 3) {
 					cout << "ATTACK Forte" << endl;
 					e.rateauXL(p2);
 					checkhealth(p2);
 					cout << endl << p2 << endl;
-
+					Cleans();
 				}
 			}
 		}
@@ -599,7 +630,7 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 					checkhealth(p3);
 
 					cout << endl << p3 << endl;
-
+					Cleans();
 
 				}
 				if (choixEnemie == 2) {
@@ -608,7 +639,7 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 					checkhealth(p3);
 
 					cout << endl << p3 << endl;
-
+					Cleans();
 
 				}
 				if (choixEnemie == 3) {
@@ -617,7 +648,7 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 					checkhealth(p3);
 
 					cout << endl << p3 << endl;
-
+					Cleans();
 
 				}
 			}
@@ -638,7 +669,7 @@ void Choix(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibl
 		int FinChoixZ = 0;// création/réinitialisation à 0 de la variable de fin de choix de zone pour sortir du while plus bas
 
 
-		cout << "le joueur :  " << personnage.getName() << " se trouve au départ" << endl << endl;
+		cout << "L'équipe :  " << personnage.getName() << " se trouve au départ" << endl << endl;
 
 		for (int i = 0; i < zones.size(); i++) {//recherche parmis chaque zone, qu'elle zone est accessible pour le joueur
 			if (zones[i].getNiveau() == 1) {//ici, on cherche chaque zone dont le niveau est 1 (si le joueur est dans une zone de niveau1, il faudra chercher les zones de niveau 2)
@@ -713,22 +744,50 @@ void Choix(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibl
 	}
 }
 
+	
+	
+
+
+	
+
 
 int main() {
+
 	SetConsoleOutputCP(1252);
 
-	Personnage p1("Anto", 200, 200, 100, false, 5, 0);
+	Enemy e1("Stefanie", 12, 110, false);
+	Enemy e2("Gwendoline", 20, 80, false);
+	Enemy e3("Patricia", 16, 100, false);
+	Enemy e4("Stefanie", 12, 110, false);
+	Enemy e5("Gwendoline", 20, 80, false);
+	Enemy e6("Patricia", 16, 100, false);
+	Enemy e7("Gwendoline", 20, 80, false);
+	Enemy e8("Patricia", 16, 100, false);
+	Enemy e9("Stefanie", 12, 110, false);
+	Enemy e10("Gwendoline", 20, 80, false);
+	Enemy e11("Patricia", 16, 100, false);
+	Enemy e12("Stefanie", 12, 110, false);
+	Enemy e13("Gwendoline", 20, 80, false);
+	Enemy e14("Patricia", 16, 100, false);
+
+	Personnage p1("Les bras Cassé", 200, 200, 100, false, 5, 0);
 
 	Bourrin b1("Anto", 3, 20, 100, false, 5, 0);
 	Romantique r1("Mathieu", 3, 15, 150, false, 5, 100);
 	Beauf bof1("Giovan", 3, 20, 100, false, 5, 0);
 
-	Enemy e1("Stefanie", 12, 110, false);
-	Enemy e2("Gwendoline", 20, 80, false);
-	Enemy e3("Patricia", 16, 100, false);
-
 
 	system("cls"); //Clean
+
+	cout << "Jean-Kévin, toujours vierge, avait envie de tourner une page de sa vie ce soir. Benoît et moi allons tout faire pour l’aider à tremper le biscuit avant la levée du soleil…" << endl << endl;
+	Cleans();
+
+	cout << " Nous avions rendez vous devant le O’Tacos de notre ville afin de se remplir la panse mais également, faire le point sur le but de la soirée et la manière dont Benoît et moi allons tout faire pour mettre en avant notre cher Jean Kévin devant les demoiselles qu’on va aborder sous peu. " << endl << endl;
+	Cleans();
+
+	cout << "A moi de faire de mon mieux pour que ce puceau de Kev devienne un vrai mâle." << endl << endl;
+	cout << "Allez, en avant, premier bar !" << endl << endl << endl;
+	
 
 	//système de zone
 	int choixZ = 0; // création de la variable de choix de zone
