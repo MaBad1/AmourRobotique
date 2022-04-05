@@ -542,12 +542,12 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				}
 
 			}
-			else if (cible == 2 && e2.getKo() == true)
+			/*else if (cible == 2 && e2.getKo() == true)
 			{
 				system("cls"); //Clean
 				cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "   3." << e3.getName() << endl;
 				cin >> cible; //ciblage de l'énemi
-			}
+			}*/
 			if (cible == 3 && e3.getKo() == true)
 			{
 				int choixP = 0;//initialisation du choix
@@ -579,12 +579,12 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				}
 
 			}
-			else if (cible == 3 && e3.getKo() == true)
+			/*else if (cible == 3 && e3.getKo() == true)
 			{
 				system("cls"); //Clean
 				cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "   2." << e2.getName() << endl;
 				cin >> cible; //ciblage de l'énemi
-			}
+			}*/
 
 		}
 	}
@@ -1493,9 +1493,9 @@ int main() {
 
 	Personnage p1("Les bras Cassé", 200, 200, 100, false, 5, 0);
 
-	Bourrin b1("Anto", 3, 20, 100, false, 5, 0);
-	Romantique r1("Mathieu", 3, 15, 150, false, 5, 100);
-	Beauf bof1("Giovan", 3, 20, 100, false, 5, 0);
+	Bourrin b1("Benoit", 3, 20, 100, false, 5, 0);
+	Romantique r1("Jean-Kevin", 3, 15, 150, false, 5, 100);
+	Beauf bof1("Moa", 3, 20, 100, false, 5, 0);
 
 
 	system("cls"); //Clean
