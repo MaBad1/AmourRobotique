@@ -153,12 +153,18 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 			cout << p << endl;
 			Cleans();
 		}
+		else if (cible == 1 && e1.getKo() == true)
+		{
+			system("cls"); //Clean
+			cout << "Choix d'une cible :" << endl << "   2." << e2.getName() << "   3." << e3.getName() << endl;
+			cin >> cible; //ciblage de l'énemi
+		}
 
 		if (choixObjet == 2)
 		{
 			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "  2." << e2.getName() << "  3." << e3.getName() << endl;
 			cin >> cible; //ciblage de l'énemi
-			if (cible == 1)
+			if (cible == 1 && e1.getKo() == false)
 			{
 				int choixP = 0;//initialisation du choix
 				if (p.getKo() == false) {
@@ -187,7 +193,8 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				}
 
 			}
-			if (cible == 2)
+			
+			if (cible == 2 && e2.getKo() == false)
 			{
 				int choixP = 0;//initialisation du choix
 
@@ -218,7 +225,13 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				}
 
 			}
-			if (cible == 3)
+			else if (cible == 2 && e2.getKo() == true)
+			{
+				system("cls"); //Clean
+				cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "   3." << e3.getName() << endl;
+				cin >> cible; //ciblage de l'énemi
+			}
+			if (cible == 3 && e3.getKo() == false)
 			{
 				int choixP = 0;//initialisation du choix
 
@@ -248,6 +261,12 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					}
 				}
 
+			}
+			else if (cible == 3 && e3.getKo() == true)
+			{
+				system("cls"); //Clean
+				cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "   2." << e2.getName() << endl;
+				cin >> cible; //ciblage de l'énemi
 			}
 
 		}
@@ -334,7 +353,7 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				cin >> cible; //ciblage de l'énemi
 			}
 
-			if (cible == 2)
+			if (cible == 2 && e2.getKo() == false)
 			{
 				int choixP = 0;//initialisation du choix
 
@@ -370,7 +389,7 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				cin >> cible; //ciblage de l'énemi
 			}
 
-			if (cible == 3)
+			if (cible == 3 && e3.getKo() == false)
 			{
 				int choixP = 0;//initialisation du choix
 
@@ -459,7 +478,7 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 		{
 			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << " 2." << e2.getName() << " 3." << e3.getName() << endl;
 			cin >> cible; //ciblage de l'énemi
-			if (cible == 1)
+			if (cible == 1 && e1.getKo() == true)
 			{
 				int choixP = 0;//initialisation du choix
 				if (p.getKo() == false) {
@@ -487,7 +506,13 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				}
 
 			}
-			if (cible == 2)
+			else if (cible == 1 && e1.getKo() == true)
+			{
+				system("cls"); //Clean
+				cout << "Choix d'une cible :" << endl << "   2." << e2.getName() << "   3." << e3.getName() << endl;
+				cin >> cible; //ciblage de l'énemi
+			}
+			if (cible == 2 && e2.getKo() == true)
 			{
 				int choixP = 0;//initialisation du choix
 
@@ -516,7 +541,13 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				}
 
 			}
-			if (cible == 3)
+			else if (cible == 2 && e2.getKo() == true)
+			{
+				system("cls"); //Clean
+				cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "   3." << e3.getName() << endl;
+				cin >> cible; //ciblage de l'énemi
+			}
+			if (cible == 3 && e3.getKo() == true)
 			{
 				int choixP = 0;//initialisation du choix
 
@@ -546,6 +577,12 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					}
 				}
 
+			}
+			else if (cible == 3 && e3.getKo() == true)
+			{
+				system("cls"); //Clean
+				cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "   2." << e2.getName() << endl;
+				cin >> cible; //ciblage de l'énemi
 			}
 
 		}
@@ -980,7 +1017,9 @@ void Choix4(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossib
 
 void Boucle1(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1, Enemy& e2, Enemy& e3) {
 	if (chosen_way == 1) { // si le joueur choisit la première zone 
-		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+		cout << "Vous rencontrez les fameuses trois jolies humaines" << endl << endl;
+		Cleans();
+
 		
 		//Boucle de Combat
 		srand(time(NULL));
@@ -1014,8 +1053,9 @@ void Boucle1(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1
 		cout << "depart du combat" << endl << endl;
 	}
 	if (chosen_way == 2) { // si le joueur choisit la deuxième zone 
-		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
-		
+		cout << "Vous rencontrez les fameuses trois jolies humaines" << endl << endl;
+		Cleans();
+
 		//Boucle de Combat
 		srand(time(NULL));
 		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() + e2.getSeduction() + e3.getSeduction() > 0) {
@@ -1048,7 +1088,8 @@ void Boucle1(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1
 		cout << "depart du combat" << endl << endl;
 	}
 	else { // si le joueur choisit la troisième zone 
-		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+		cout << "Vous rencontrez les fameuses trois jolies humaines" << endl << endl;
+		Cleans();
 		
 		cout << chosen_way << endl;
 		//Boucle de Combat
@@ -1087,7 +1128,8 @@ void Boucle1(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1
 
 void Boucle2(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1, Enemy& e2, Enemy& e3) {
 	if (chosen_way == 1) { // si le joueur choisit la première zone 
-		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+		cout << "Vous rencontrez les fameuses trois jolies humaines" << endl << endl;
+		Cleans();
 		
 		e1.setSeduction(30);
 		e1.setRateau(16);
@@ -1132,7 +1174,8 @@ void Boucle2(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1
 		cout << "depart du combat" << endl << endl;
 	}
 	if (chosen_way == 2) { // si le joueur choisit la deuxième zone 
-		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+		cout << "Vous rencontrez les fameuses trois jolies humaines" << endl << endl;
+		Cleans();
 
 		//Boucle de Combat
 		srand(time(NULL));
@@ -1166,7 +1209,8 @@ void Boucle2(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1
 		cout << "depart du combat" << endl << endl;
 	}
 	else { // si le joueur choisit la troisième zone 
-		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+		cout << "Vous rencontrez les fameuses trois jolies humaines" << endl << endl;
+		Cleans();
 
 		cout << chosen_way << endl;
 		//Boucle de Combat
@@ -1205,7 +1249,8 @@ void Boucle2(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1
 
 void Boucle3(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1, Enemy& e2, Enemy& e3) {
 	if (chosen_way == 1) { // si le joueur choisit la première zone 
-		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+		cout << "Vous rencontrez les fameuses trois jolies humaines" << endl << endl;
+		Cleans();
 
 		e1.setSeduction(45);
 		e1.setRateau(20);
@@ -1250,7 +1295,8 @@ void Boucle3(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1
 		cout << "depart du combat" << endl << endl;
 	}
 	if (chosen_way == 2) { // si le joueur choisit la deuxième zone 
-		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+		cout << "Vous rencontrez les fameuses trois jolies humaines" << endl << endl;
+		Cleans();
 
 		//Boucle de Combat
 		srand(time(NULL));
@@ -1284,7 +1330,8 @@ void Boucle3(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1
 		cout << "depart du combat" << endl << endl;
 	}
 	else { // si le joueur choisit la troisième zone 
-		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+		cout << "Vous rencontrez les fameuses trois jolies humaines" << endl << endl;
+		Cleans();
 
 		cout << chosen_way << endl;
 		//Boucle de Combat
@@ -1323,7 +1370,8 @@ void Boucle3(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1
 
 void Boucle4(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1, Enemy& e2, Enemy& e3) {
 	if (chosen_way == 1) { // si le joueur choisit la première zone 
-		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+		cout << "Vous rencontrez les fameuses trois jolies humaines" << endl << endl;
+		Cleans();
 
 		e1.setSeduction(150);
 		e1.setRateau(30);
@@ -1361,7 +1409,8 @@ void Boucle4(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1
 		cout << "depart du combat" << endl << endl;
 	}
 	if (chosen_way == 2) { // si le joueur choisit la deuxième zone 
-		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+		cout << "Vous rencontrez les fameuses trois jolies humaines" << endl << endl;
+		Cleans();
 
 		//Boucle de Combat
 		srand(time(NULL));
@@ -1395,7 +1444,8 @@ void Boucle4(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1
 		cout << "depart du combat" << endl << endl;
 	}
 	else { // si le joueur choisit la troisième zone 
-		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+		cout << "Vous rencontrez les fameuses trois jolies humaines" << endl << endl;
+		Cleans();
 
 		cout << chosen_way << endl;
 		//Boucle de Combat
@@ -1449,10 +1499,28 @@ int main() {
 
 	system("cls"); //Clean
 
-	cout << "Jean-Kévin, toujours vierge, avait envie de tourner une page de sa vie ce soir. Benoît et moi allons tout faire pour l’aider à tremper le biscuit avant la levée du soleil…" << endl << endl;
+
+	cout << "88b_o8b #d8PPPP   #doooooo         #doooooo #888  888 #d8PPPP  #88     88888888 888  888 " << endl;
+	cout << "88 8 8b #d88ooo   #d88             #d88     #88888888 #d88ooo  #88     888  888 888  888 " << endl;
+	cout << "88   8b #88'      #d88             #d88     #88P  888 #88'     #88     888  888 888  888 " << endl;
+	cout << "88   8P #88bdPPP  #d888888         #d888888 #88P  888 #88bdPP  #888PP  888oo888 888PP888 " << endl << endl << endl;
+	cout << " By Ilona Duprey, Giovan Buiatti, Mathieu Abadie, Lilian Duret, Kyliann Faggian et Antonin Couzinet !" << endl << endl;
 	Cleans();
 
-	cout << " Nous avions rendez vous devant le O’Tacos de notre ville afin de se remplir la panse mais également, faire le point sur le but de la soirée et la manière dont Benoît et moi allons tout faire pour mettre en avant notre cher Jean Kévin devant les demoiselles qu’on va aborder sous peu. " << endl << endl;
+	cout << "WARNING" << endl;
+	cout << "CECI EST UN JEU" << endl;
+
+	cout << "Ames sensible s'abstenir, toute ressemblance avec des personnes ou des événements existants ou ayant" << endl; 
+	cout << "existé ne serait que pure coïncidence" << endl;
+	Cleans();
+
+	cout << "Jean-Kévin, toujours vierge, avait envie de tourner une page de sa vie ce soir." << endl;
+	cout << "Benoît et moi allons tout faire pour l’aider à tremper le biscuit avant la levée du soleil…" << endl << endl;
+	Cleans();
+
+	cout << " Nous avions rendez vous devant le O’Tacos de notre ville afin de se remplir la panse mais également," << endl;
+	cout << " faire le point sur le but de la soirée et la manière dont Benoît et moi allons tout faire pour mettre " << endl;
+	cout << "en avant notre cher Jean Kévin devant les 3 demoiselles que nous avons repérer et que nous allons stalker toutes la soirée. " << endl << endl;
 	Cleans();
 
 	cout << "A moi de faire de mon mieux pour que ce puceau de Kev devienne un vrai mâle." << endl << endl;

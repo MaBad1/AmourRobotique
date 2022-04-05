@@ -74,7 +74,7 @@ int Enemy::getSeduction() const
 void Enemy::setSeduction(int s)
 {
 	
-	if (s < 0 || s > 150)
+	if (s < 0 || s > 250)
 	{
 		seduction = 0;
 		setKo(true);
