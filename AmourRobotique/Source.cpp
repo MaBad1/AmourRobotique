@@ -8,7 +8,6 @@
 #include <Windows.h>
 
 
-//Fonction pour faire des jolies cleans monsieur
 void Cleans()
 {
 	int h;
@@ -20,8 +19,6 @@ void Cleans()
 		system("cls"); //Clean
 	}
 }
-
-
 //Fonction pour ouvrir l'inventaire.
 void openInv(vector<vector<int>>& inventaire)
 {
@@ -300,7 +297,7 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 		{
 			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "   2." << e2.getName() << "   3." << e3.getName() << endl;
 			cin >> cible; //ciblage de l'énemi
-			if (cible == 1 && e1.getKo() == false)
+			if (cible == 1)
 			{
 				int choixP = 0;//initialisation du choix
 				if (p.getKo() == false) {
@@ -326,14 +323,8 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 						Cleans();
 					}
 				}
-			}
-			else if(cible == 1 && e1.getKo() == true)
-			{
-				system("cls"); //Clean
-				cout << "Choix d'une cible :" << endl << "   2." << e2.getName() << "   3." << e3.getName() << endl;
-				cin >> cible; //ciblage de l'énemi
-			}
 
+			}
 			if (cible == 2)
 			{
 				int choixP = 0;//initialisation du choix
@@ -363,13 +354,6 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				}
 
 			}
-			else if (cible == 2 && e2.getKo() == true)
-			{
-				system("cls"); //Clean
-				cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "   3." << e3.getName() << endl;
-				cin >> cible; //ciblage de l'énemi
-			}
-
 			if (cible == 3)
 			{
 				int choixP = 0;//initialisation du choix
@@ -383,29 +367,20 @@ void attackRomantique(Romantique& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					if (choixP == 1) {
 //						cout << "ATTACK Faible" << endl;
 						p.disquetteRomantiqueM(e3);
-						cout << endl << e3 << endl;
 						Cleans();
 					}
 					if (choixP == 2) {
 //						cout << "ATTACK Moyenne" << endl;
 						p.disquetteRomantiqueL(e3);
-						cout << endl << e3 << endl;
 						Cleans();
 					}
 					if (choixP == 3) {
 //						cout << "ATTACK Forte" << endl;
 						p.disquetteRomantiqueXL(e3);
-						cout << endl << e3 << endl;
 						Cleans();
 					}
 				}
 
-			}
-			else if (cible == 3 && e3.getKo() == true)
-			{
-				system("cls"); //Clean
-				cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "   2." << e2.getName() << endl;
-				cin >> cible; //ciblage de l'énemi
 			}
 
 		}
@@ -582,7 +557,7 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 			cout << "La cible choisie est " << p1.getName() << endl;
 			//Choix de l'attack
 			if (e.getKo() == false) {
-				
+
 				if (choixEnemie == 1) {
 					cout << "ATTACK Faible" << endl;
 					e.rateauM(p1);
@@ -1517,6 +1492,7 @@ int main() {
 	Choix2(p1, zones, zonesPossibles, chosen_way, zoneOccupee);
 
 	Boucle2(chosen_way, b1, bof1, r1, e1, e2, e3);
+
 	//Choix3(p1, zones, zonesPossibles, chosen_way, zoneOccupee);
 	//Choix4(p1, zones, zonesPossibles, chosen_way, zoneOccupee);
 }
