@@ -3,6 +3,10 @@
 
 Enemy::Enemy()
 {
+	setName("Patoche");
+	setRateau(10);
+	setSeduction(50);
+	setKo(false);
 }
 
 Enemy::Enemy(string n, int r, int s, bool k)
@@ -69,23 +73,14 @@ int Enemy::getSeduction() const
 //Si celle-ci n'est pas comprise entre 0 et 150, elle est affiché !
 void Enemy::setSeduction(int s)
 {
-	if (s < 0 || s > 150)
-	{
-		seduction = 80;
-		cout << "Unacceptable seduction !" << endl;
-	}
+	
 	if (s < 0 || s > 150)
 	{
 		seduction = 0;
-		cout << "Acceptable seduction !" << endl;
-	}
-	if (s == 0 || s < 0)
-	{
 		setKo(true);
 	}
 	else {
 		seduction = s;
-
 	}
 }
 
