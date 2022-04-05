@@ -477,9 +477,9 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 
 		if (choixObjet == 2)
 		{
-			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << " 2." << e2.getName() << " 3." << e3.getName() << endl;
+			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "   2." << e2.getName() << "   3." << e3.getName() << endl;
 			cin >> cible; //ciblage de l'énemi
-			if (cible == 1 && e1.getKo() == true)
+			if (cible == 1 && e1.getKo() == false)
 			{
 				int choixP = 0;//initialisation du choix
 				if (p.getKo() == false) {
@@ -487,25 +487,24 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					cin >> choixP;
 					//Choix de l'attack
 					if (choixP == 1) {
-//						cout << "ATTACK Faible" << endl;
+						//	cout << "ATTACK Faible" << endl;
 						p.disquetteBeaufM(e1);
 						cout << endl << e1 << endl;
 						Cleans();
 					}
 					if (choixP == 2) {
-//						cout << "ATTACK Moyenne" << endl;
+						//	cout << "ATTACK Moyenne" << endl;
 						p.disquetteBeaufL(e1);
 						cout << endl << e1 << endl;
 						Cleans();
 					}
 					if (choixP == 3) {
-//						cout << "ATTACK Forte" << endl;
+						//	cout << "ATTACK Forte" << endl;
 						p.disquetteBeaufXL(e1);
 						cout << endl << e1 << endl;
 						Cleans();
 					}
 				}
-
 			}
 			else if (cible == 1 && e1.getKo() == true)
 			{
@@ -513,7 +512,8 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				cout << "Choix d'une cible :" << endl << "   2." << e2.getName() << "   3." << e3.getName() << endl;
 				cin >> cible; //ciblage de l'énemi
 			}
-			if (cible == 2 && e2.getKo() == true)
+
+			if (cible == 2 && e2.getKo() == false)
 			{
 				int choixP = 0;//initialisation du choix
 
@@ -522,19 +522,19 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					cin >> choixP;
 					//Choix de l'attack
 					if (choixP == 1) {
-//						cout << "ATTACK Faible" << endl;
+						//	cout << "ATTACK Faible" << endl;
 						p.disquetteBeaufM(e2);
 						cout << endl << e2 << endl;
 						Cleans();
 					}
 					if (choixP == 2) {
-//						cout << "ATTACK Moyenne" << endl;
+						//	cout << "ATTACK Moyenne" << endl;
 						p.disquetteBeaufL(e2);
 						cout << endl << e2 << endl;
 						Cleans();
 					}
 					if (choixP == 3) {
-//						cout << "ATTACK Forte" << endl;
+						//	cout << "ATTACK Forte" << endl;
 						p.disquetteBeaufXL(e2);
 						cout << endl << e2 << endl;
 						Cleans();
@@ -542,13 +542,14 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				}
 
 			}
-			/*else if (cible == 2 && e2.getKo() == true)
+			else if (cible == 2 && e2.getKo() == true)
 			{
 				system("cls"); //Clean
 				cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "   3." << e3.getName() << endl;
 				cin >> cible; //ciblage de l'énemi
-			}*/
-			if (cible == 3 && e3.getKo() == true)
+			}
+
+			if (cible == 3 && e3.getKo() == false)
 			{
 				int choixP = 0;//initialisation du choix
 
@@ -559,19 +560,19 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					cin >> choixP;
 					//Choix de l'attack
 					if (choixP == 1) {
-//						cout << "ATTACK Faible" << endl;
+						//	cout << "ATTACK Faible" << endl;
 						p.disquetteBeaufM(e3);
 						cout << endl << e3 << endl;
 						Cleans();
 					}
 					if (choixP == 2) {
-//						cout << "ATTACK Moyenne" << endl;
+						//	cout << "ATTACK Moyenne" << endl;
 						p.disquetteBeaufL(e3);
 						cout << endl << e3 << endl;
 						Cleans();
 					}
 					if (choixP == 3) {
-//						cout << "ATTACK Forte" << endl;
+						//	cout << "ATTACK Forte" << endl;
 						p.disquetteBeaufXL(e3);
 						cout << endl << e3 << endl;
 						Cleans();
@@ -579,12 +580,12 @@ void attackBeauf(Beauf& p, Enemy& e1, Enemy& e2, Enemy& e3)
 				}
 
 			}
-			/*else if (cible == 3 && e3.getKo() == true)
+			else if (cible == 3 && e3.getKo() == true)
 			{
 				system("cls"); //Clean
 				cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "   2." << e2.getName() << endl;
 				cin >> cible; //ciblage de l'énemi
-			}*/
+			}
 
 		}
 	}
