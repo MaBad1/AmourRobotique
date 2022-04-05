@@ -153,17 +153,12 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 			cout << p << endl;
 			Cleans();
 		}
-		else if (cible == 1 && e1.getKo() == true)
-		{
-			system("cls"); //Clean
-			cout << "Choix d'une cible :" << endl << "   2." << e2.getName() << "   3." << e3.getName() << endl;
-			cin >> cible; //ciblage de l'énemi
-		}
 
 		if (choixObjet == 2)
 		{
 			cout << "Choix d'une cible :" << endl << "1." << e1.getName() << "  2." << e2.getName() << "  3." << e3.getName() << endl;
 			cin >> cible; //ciblage de l'énemi
+
 			if (cible == 1 && e1.getKo() == false)
 			{
 				int choixP = 0;//initialisation du choix
@@ -192,6 +187,12 @@ void attackBourrin(Bourrin& p, Enemy& e1, Enemy& e2, Enemy& e3)
 					}
 				}
 
+			}
+			else if (cible == 1 && e1.getKo() == true)
+			{
+				system("cls"); //Clean
+				cout << "Choix d'une cible :" << endl << "   2." << e2.getName() << "   3." << e3.getName() << endl;
+				cin >> cible; //ciblage de l'énemi
 			}
 			
 			if (cible == 2 && e2.getKo() == false)
