@@ -660,7 +660,7 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 }
 
 
-void Choix(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>zoneOccupee){
+void Choix(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>&zoneOccupee){
 	if (personnage.getPlace() == 0 ){//si la position du joueur 1 est de 0 (c'est à dire le spawn)
 
 		int choixZ = 0; // création/réinitialisation à 0 de la variable de choix de zone
@@ -705,7 +705,7 @@ void Choix(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibl
 				else if (choixZ == 3) {
 					cout << "vous entrez dans : " << zonesPossibles[2].getName() << endl;
 					chosen_way = 3;
-					zoneOccupee.push_back(zonesPossibles[0]);
+					zoneOccupee.push_back(zonesPossibles[2]);
 					personnage.setPlace(1);
 					FinChoixZ = 1;
 				}
@@ -756,20 +756,20 @@ void Choix2(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossib
 
 		cout << "L'équipe :  " << personnage.getName() << " se trouve au départ" << endl << endl;
 
-		for (int j = 0; j < zones.size(); j++) {
-			zones[j].setLinked(false);//principalement du debug lors des tests 
-		}
+		
 
 		for (int i = 0; i < zones.size(); i++) {//recherche parmis chaque zone, qu'elle zone est accessible pour le joueur
+
 			if (zoneOccupee[0].getZoneid() == 1) {
-				if (zones[i].getNiveau() == 2 || zones[i].getZoneid() > 10 || zones[i].getZoneid() < 20) {//ici, on cherche chaque zone dont le niveau est 2 
-					cout << zones[i].getName() << " est possible " << endl << endl;//toutes les zones de niveau 1
+				if (zones[i].getNiveau() == 2 && zones[i].getZoneid() > 10 && zones[i].getZoneid() < 20) {//ici, on cherche chaque zone dont le niveau est 2 
+					cout << zones[i].getName() << " est possible " << endl << endl;
 					zones[i].setLinked(true);//sont accessibles
 					zonesPossibles.push_back(zones[i]);//ajout de la zone dans une nouvelle liste qui ne contient que les zones possibles
 				}
 			}
+
 			else if (zoneOccupee[0].getZoneid() == 2) {
-				if (zones[i].getNiveau() == 2 || zones[i].getZoneid() > 20 || zones[i].getZoneid() < 30) {//ici, on cherche chaque zone dont le niveau est 2, et l'id correspondant à la zone précédente 
+				if (zones[i].getNiveau() == 2 && zones[i].getZoneid() > 20 && zones[i].getZoneid() < 30) {//ici, on cherche chaque zone dont le niveau est 2, et l'id correspondant à la zone précédente 
 					cout << zones[i].getName() << " est possible " << endl << endl;//toutes les zones de niveau 1
 					zones[i].setLinked(true);//sont accessibles
 					zonesPossibles.push_back(zones[i]);//ajout de la zone dans une nouvelle liste qui ne contient que les zones possibles
@@ -826,17 +826,15 @@ void Choix2(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossib
 
 				if (choixZ == 1) {//le joueur choisit la zone n°1
 					cout << "Vous entrez dans : " << zonesPossibles[0].getName() << endl;//on affiche le nom de la zone n°1 (!)attention(!) le premier élément d'une liste est toujours 0, le deuxième 1 etc...
-					zonesPossibles[1].setLinked(false);//on délink les autres zones car elles ne seront plus accessibles (pas besoin de comprendre ça je l'utilise pas pour l'instant)
 					chosen_way = 1;//le choix choisis est le numéro un , permet d'initialiser les boucles de jeu plus bas
-					zoneOccupee.push_back(zonesPossibles[2]);//on met dans un tableau la zone où le joueur veut entrer.
+					zoneOccupee.push_back(zonesPossibles[0]);//on met dans un tableau la zone où le joueur veut entrer.
 					personnage.setPlace(2);
 					FinChoixZ = 1;//on sort de la boucle
 				}
 				else if (choixZ == 2) {
 					cout << "vous entrez dans : " << zonesPossibles[1].getName() << endl;
-					zonesPossibles[0].setLinked(false);
 					chosen_way = 2;
-					zoneOccupee.push_back(zonesPossibles[2]);//on met dans un tableau la zone où le joueur veut entrer.
+					zoneOccupee.push_back(zonesPossibles[1]);//on met dans un tableau la zone où le joueur veut entrer.
 					personnage.setPlace(2);
 					FinChoixZ = 1;
 				}
@@ -1143,10 +1141,11 @@ int main() {
 
 	Choix(p1, zones, zonesPossibles, chosen_way, zoneOccupee);//
 	cout << p1.getPlace() << endl;
+	cout << "test" << zoneOccupee[0].getZoneid() << endl;
 	//BOUCLES DE JEU ---------------------------------------------------
 
 	Boucle1(chosen_way, b1, bof1, r1, e1, e2, e3);
 
-	//Choix2(p1, zones, zonesPossibles, chosen_way, zoneOccupee);
+	Choix2(p1, zones, zonesPossibles, chosen_way, zoneOccupee);
 
 }
