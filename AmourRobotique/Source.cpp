@@ -660,7 +660,7 @@ void attackenemy(Personnage& p1, Personnage& p2, Personnage& p3, Enemy& e)
 }
 
 
-void Choix(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>&zoneOccupee){
+void Choix(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>& zoneOccupee){
 	if (personnage.getPlace() == 0 ){//si la position du joueur 1 est de 0 (c'est à dire le spawn)
 
 		int choixZ = 0; // création/réinitialisation à 0 de la variable de choix de zone
@@ -744,7 +744,7 @@ void Choix(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibl
 	}
 }
 
-void Choix2(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>&zoneOccupee) {
+void Choix2(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>& zoneOccupee) {
 	if (personnage.getPlace() == 1) {//si la position du joueur 1 est de 1 (c'est à dire la fin du niveau 1)
 
 		int choixZ = 0; // création/réinitialisation à 0 de la variable de choix de zone
@@ -770,6 +770,13 @@ void Choix2(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossib
 
 			else if (zoneOccupee[0].getZoneid() == 2) {
 				if (zones[i].getNiveau() == 2 && zones[i].getZoneid() > 20 && zones[i].getZoneid() < 30) {//ici, on cherche chaque zone dont le niveau est 2, et l'id correspondant à la zone précédente 
+					cout << zones[i].getName() << " est possible " << endl << endl;//toutes les zones de niveau 1
+					zones[i].setLinked(true);//sont accessibles
+					zonesPossibles.push_back(zones[i]);//ajout de la zone dans une nouvelle liste qui ne contient que les zones possibles
+				}
+			}
+			else {
+				if (zones[i].getNiveau() == 2 && zones[i].getZoneid() > 30 && zones[i].getZoneid() < 40) {//ici, on cherche chaque zone dont le niveau est 2, et l'id correspondant à la zone précédente 
 					cout << zones[i].getName() << " est possible " << endl << endl;//toutes les zones de niveau 1
 					zones[i].setLinked(true);//sont accessibles
 					zonesPossibles.push_back(zones[i]);//ajout de la zone dans une nouvelle liste qui ne contient que les zones possibles
@@ -846,7 +853,8 @@ void Choix2(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossib
 	}
 }
 
-void Choix3(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>&zoneOccupee) {
+void Choix3(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>& zoneOccupee)
+{
 	if (personnage.getPlace() == 2) {//si la position du joueur 1 est de 1 (c'est à dire la fin du niveau 1)
 
 		int choixZ = 0; // création/réinitialisation à 0 de la variable de choix de zone
@@ -858,69 +866,73 @@ void Choix3(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossib
 
 		cout << "L'équipe :  " << personnage.getName() << " se trouve au départ" << endl << endl;
 
-		for (int j = 0; j < zones.size(); j++) {
-			zones[j].setLinked(false);
-		}
 
 		for (int i = 0; i < zones.size(); i++) {//recherche parmis chaque zone, qu'elle zone est accessible pour le joueur
-			if (zoneOccupee[0].getZoneid() == 1) {
-				if (zones[i].getNiveau() == 2 || zones[i].getZoneid() > 10 || zones[i].getZoneid() < 20) {//ici, on cherche chaque zone dont le niveau est 2 
+			if (zoneOccupee[0].getZoneid() > 10 && zoneOccupee[0].getZoneid() < 20) {
+				if (zones[i].getNiveau() == 2 && zones[i].getZoneid() > 100 && zones[i].getZoneid() < 200) {//ici, on cherche chaque zone dont le niveau est 2 
 					cout << zones[i].getName() << " est possible " << endl << endl;//toutes les zones de niveau 1
 					zones[i].setLinked(true);//sont accessibles
 					zonesPossibles.push_back(zones[i]);//ajout de la zone dans une nouvelle liste qui ne contient que les zones possibles
 				}
 			}
-			else if (zoneOccupee[0].getZoneid() == 2) {
-				if (zones[i].getNiveau() == 2 || zones[i].getZoneid() > 20 || zones[i].getZoneid() < 30) {//ici, on cherche chaque zone dont le niveau est 2, et l'id correspondant à la zone précédente 
+			else if (zoneOccupee[0].getZoneid() > 20 && zoneOccupee[0].getZoneid() < 30) {
+				if (zones[i].getNiveau() == 2 && zones[i].getZoneid() > 200 && zones[i].getZoneid() < 300) {//ici, on cherche chaque zone dont le niveau est 2, et l'id correspondant à la zone précédente 
 					cout << zones[i].getName() << " est possible " << endl << endl;//toutes les zones de niveau 1
 					zones[i].setLinked(true);//sont accessibles
 					zonesPossibles.push_back(zones[i]);//ajout de la zone dans une nouvelle liste qui ne contient que les zones possibles
 				}
 			}
-
-		}
-		zoneOccupee.clear();//on clear le tableau qui contien la zone occupée car on change de zone
-
-		//cout << " taille de la liste : " << zonesPossibles.size() << endl;
-
-		if (zonesPossibles.size() == 2) {//si il y a 2 zones différentes on vient ici
-
-			while (FinChoixZ == 0) {
-
-				cout << "Choisissez une des zones disponibles en écrivant un chiffre entre 1 et 2" << endl;
-				cin >> choixZ;
-
-				if (choixZ == 1) {//le joueur choisit la zone n°1
-					cout << "Vous entrez dans : " << zonesPossibles[0].getName() << endl;//on affiche le nom de la zone n°1 (!)attention(!) le premier élément d'une liste est toujours 0, le deuxième 1 etc...
-					zonesPossibles[1].setLinked(false);//on délink les autres zones car elles ne seront plus accessibles (pas besoin de comprendre ça je l'utilise pas pour l'instant)
-					chosen_way = 1;//le choix choisis est le numéro un , permet d'initialiser les boucles de jeu plus bas
-					zoneOccupee.push_back(zonesPossibles[0]);
-					personnage.setPlace(3);
-					FinChoixZ = 1;//on sort de la boucle
-				}
-				else if (choixZ == 2) {
-					cout << "vous entrez dans : " << zonesPossibles[1].getName() << endl;
-					zonesPossibles[0].setLinked(false);
-					chosen_way = 2;
-					zoneOccupee.push_back(zonesPossibles[1]);
-					personnage.setPlace(3);
-					FinChoixZ = 1;
-				}
-				else {
-					cout << "erreur d'entree, veuillez entrer un chiffre entre 1 et 2" << endl;
+			else {
+				if (zones[i].getNiveau() == 2 && zones[i].getZoneid() > 200 && zones[i].getZoneid() < 300) {//ici, on cherche chaque zone dont le niveau est 2, et l'id correspondant à la zone précédente 
+					cout << zones[i].getName() << " est possible " << endl << endl;//toutes les zones de niveau 1
+					zones[i].setLinked(true);//sont accessibles
+					zonesPossibles.push_back(zones[i]);//ajout de la zone dans une nouvelle liste qui ne contient que les zones possibles
 				}
 			}
-		}
-		else {
-			cout << "Vous entrez dans : " << zonesPossibles[0].getName() << endl;
-			chosen_way = 1;
-			personnage.setPlace(3);
-			FinChoixZ = 1;//on sort de la boucle
+			zoneOccupee.clear();//on clear le tableau qui contien la zone occupée car on change de zone
+
+			//cout << " taille de la liste : " << zonesPossibles.size() << endl;
+
+			if (zonesPossibles.size() == 2) {//si il y a 2 zones différentes on vient ici
+
+				while (FinChoixZ == 0) {
+
+					cout << "Choisissez une des zones disponibles en écrivant un chiffre entre 1 et 2" << endl;
+					cin >> choixZ;
+
+					if (choixZ == 1) {//le joueur choisit la zone n°1
+						cout << "Vous entrez dans : " << zonesPossibles[0].getName() << endl;//on affiche le nom de la zone n°1 (!)attention(!) le premier élément d'une liste est toujours 0, le deuxième 1 etc...
+						zonesPossibles[1].setLinked(false);//on délink les autres zones car elles ne seront plus accessibles (pas besoin de comprendre ça je l'utilise pas pour l'instant)
+						chosen_way = 1;//le choix choisis est le numéro un , permet d'initialiser les boucles de jeu plus bas
+						zoneOccupee.push_back(zonesPossibles[0]);
+						personnage.setPlace(3);
+						FinChoixZ = 1;//on sort de la boucle
+					}
+					else if (choixZ == 2) {
+						cout << "vous entrez dans : " << zonesPossibles[1].getName() << endl;
+						zonesPossibles[0].setLinked(false);
+						chosen_way = 2;
+						zoneOccupee.push_back(zonesPossibles[1]);
+						personnage.setPlace(3);
+						FinChoixZ = 1;
+					}
+					else {
+						cout << "erreur d'entree, veuillez entrer un chiffre entre 1 et 2" << endl;
+					}
+				}
+			}
+			else {
+				cout << "Vous entrez dans : " << zonesPossibles[0].getName() << endl;
+				chosen_way = 3;
+				zoneOccupee.push_back(zonesPossibles[0]);
+				personnage.setPlace(3);
+				FinChoixZ = 1;//on sort de la boucle
+			}
 		}
 	}
 }
 
-void choix4(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>&zoneOccupee) {
+void Choix4(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>& zoneOccupee) {
 	if (personnage.getPlace() == 3) {
 		int choixZ = 0; // création/réinitialisation à 0 de la variable de choix de zone
 		int FinChoixZ = 0;// création/réinitialisation à 0 de la variable de fin de choix de zone pour sortir du while plus bas
@@ -1048,6 +1060,352 @@ void Boucle1(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1
 
 }
 
+void Boucle2(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1, Enemy& e2, Enemy& e3) {
+	if (chosen_way == 1) { // si le joueur choisit la première zone 
+		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+		
+		e1.setSeduction(30);
+		e1.setRateau(16);
+		
+		e2.setSeduction(30);
+		e2.setRateau(22);
+
+		e3.setSeduction(30);
+		e3.setRateau(18);
+
+
+
+		//Boucle de Combat
+		srand(time(NULL));
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() + e2.getSeduction() + e3.getSeduction() > 0) {
+
+			attackBourrin(b1, e1, e2, e3);
+
+			attackRomantique(r1, e1, e2, e3);
+
+			attackBeauf(bof1, e1, e2, e3);
+
+			cout << "FIN DE TOUR JOUEUR" << endl << endl;
+
+			attackenemy(b1, r1, bof1, e1);
+			attackenemy(b1, r1, bof1, e2);
+			attackenemy(b1, r1, bof1, e3);
+
+			cout << endl << "FIN DE TOUR ENEMIE" << endl << endl;
+
+		}
+
+		if (b1.getHealth() + r1.getHealth() + bof1.getHealth() == 0)
+		{
+			cout << "Le groupe de fille que vous avez rencontrer, vous à laisser sur le carreaux! Vos egos viennent de prendre un coup." << endl;
+		}
+
+		if (e1.getSeduction() + e2.getSeduction() + e3.getSeduction() == 0)
+		{
+			cout << "Vous avez remporter votre première conquête." << endl;
+		}
+		cout << "depart du combat" << endl << endl;
+	}
+	if (chosen_way == 2) { // si le joueur choisit la deuxième zone 
+		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+
+		//Boucle de Combat
+		srand(time(NULL));
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() + e2.getSeduction() + e3.getSeduction() > 0) {
+
+			attackBourrin(b1, e1, e2, e3);
+
+			attackRomantique(r1, e1, e2, e3);
+
+			attackBeauf(bof1, e1, e2, e3);
+
+			cout << "FIN DE TOUR JOUEUR" << endl << endl;
+
+			attackenemy(b1, r1, bof1, e1);
+			attackenemy(b1, r1, bof1, e2);
+			attackenemy(b1, r1, bof1, e3);
+
+			cout << endl << "FIN DE TOUR ENEMIE" << endl << endl;
+
+		}
+
+		if (b1.getHealth() + r1.getHealth() + bof1.getHealth() == 0)
+		{
+			cout << "Le groupe de fille que vous avez rencontrer, vous à laisser sur le carreaux! Vos egos viennent de prendre un coup." << endl;
+		}
+
+		if (e1.getSeduction() + e2.getSeduction() + e3.getSeduction() == 0)
+		{
+			cout << "Vous avez remporter votre première conquête." << endl;
+		}
+		cout << "depart du combat" << endl << endl;
+	}
+	else { // si le joueur choisit la troisième zone 
+		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+
+		cout << chosen_way << endl;
+		//Boucle de Combat
+		srand(time(NULL));
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() + e2.getSeduction() + e3.getSeduction() > 0) {
+
+			attackBourrin(b1, e1, e2, e3);
+
+			attackRomantique(r1, e1, e2, e3);
+
+			attackBeauf(bof1, e1, e2, e3);
+
+			cout << "FIN DE TOUR JOUEUR" << endl << endl;
+
+			attackenemy(b1, r1, bof1, e1);
+			attackenemy(b1, r1, bof1, e2);
+			attackenemy(b1, r1, bof1, e3);
+
+			cout << endl << "FIN DE TOUR ENEMIE" << endl << endl;
+
+		}
+
+		if (b1.getHealth() + r1.getHealth() + bof1.getHealth() == 0)
+		{
+			cout << "Le groupe de fille que vous avez rencontrer, vous à laisser sur le carreaux! Vos egos viennent de prendre un coup." << endl;
+		}
+
+		if (e1.getSeduction() + e2.getSeduction() + e3.getSeduction() == 0)
+		{
+			cout << "Vous avez remporter votre première conquête." << endl;
+		}
+		cout << "depart du combat" << endl << endl;
+	}
+
+}
+
+void Boucle3(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1, Enemy& e2, Enemy& e3) {
+	if (chosen_way == 1) { // si le joueur choisit la première zone 
+		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+
+		e1.setSeduction(45);
+		e1.setRateau(20);
+
+		e2.setSeduction(45);
+		e2.setRateau(26);
+
+		e3.setSeduction(45);
+		e3.setRateau(22);
+
+
+
+		//Boucle de Combat
+		srand(time(NULL));
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() + e2.getSeduction() + e3.getSeduction() > 0) {
+
+			attackBourrin(b1, e1, e2, e3);
+
+			attackRomantique(r1, e1, e2, e3);
+
+			attackBeauf(bof1, e1, e2, e3);
+
+			cout << "FIN DE TOUR JOUEUR" << endl << endl;
+
+			attackenemy(b1, r1, bof1, e1);
+			attackenemy(b1, r1, bof1, e2);
+			attackenemy(b1, r1, bof1, e3);
+
+			cout << endl << "FIN DE TOUR ENEMIE" << endl << endl;
+
+		}
+
+		if (b1.getHealth() + r1.getHealth() + bof1.getHealth() == 0)
+		{
+			cout << "Le groupe de fille que vous avez rencontrer, vous à laisser sur le carreaux! Vos egos viennent de prendre un coup." << endl;
+		}
+
+		if (e1.getSeduction() + e2.getSeduction() + e3.getSeduction() == 0)
+		{
+			cout << "Vous avez remporter votre première conquête." << endl;
+		}
+		cout << "depart du combat" << endl << endl;
+	}
+	if (chosen_way == 2) { // si le joueur choisit la deuxième zone 
+		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+
+		//Boucle de Combat
+		srand(time(NULL));
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() + e2.getSeduction() + e3.getSeduction() > 0) {
+
+			attackBourrin(b1, e1, e2, e3);
+
+			attackRomantique(r1, e1, e2, e3);
+
+			attackBeauf(bof1, e1, e2, e3);
+
+			cout << "FIN DE TOUR JOUEUR" << endl << endl;
+
+			attackenemy(b1, r1, bof1, e1);
+			attackenemy(b1, r1, bof1, e2);
+			attackenemy(b1, r1, bof1, e3);
+
+			cout << endl << "FIN DE TOUR ENEMIE" << endl << endl;
+
+		}
+
+		if (b1.getHealth() + r1.getHealth() + bof1.getHealth() == 0)
+		{
+			cout << "Le groupe de fille que vous avez rencontrer, vous à laisser sur le carreaux! Vos egos viennent de prendre un coup." << endl;
+		}
+
+		if (e1.getSeduction() + e2.getSeduction() + e3.getSeduction() == 0)
+		{
+			cout << "Vous avez remporter votre première conquête." << endl;
+		}
+		cout << "depart du combat" << endl << endl;
+	}
+	else { // si le joueur choisit la troisième zone 
+		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+
+		cout << chosen_way << endl;
+		//Boucle de Combat
+		srand(time(NULL));
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() + e2.getSeduction() + e3.getSeduction() > 0) {
+
+			attackBourrin(b1, e1, e2, e3);
+
+			attackRomantique(r1, e1, e2, e3);
+
+			attackBeauf(bof1, e1, e2, e3);
+
+			cout << "FIN DE TOUR JOUEUR" << endl << endl;
+
+			attackenemy(b1, r1, bof1, e1);
+			attackenemy(b1, r1, bof1, e2);
+			attackenemy(b1, r1, bof1, e3);
+
+			cout << endl << "FIN DE TOUR ENEMIE" << endl << endl;
+
+		}
+
+		if (b1.getHealth() + r1.getHealth() + bof1.getHealth() == 0)
+		{
+			cout << "Le groupe de fille que vous avez rencontrer, vous à laisser sur le carreaux! Vos egos viennent de prendre un coup." << endl;
+		}
+
+		if (e1.getSeduction() + e2.getSeduction() + e3.getSeduction() == 0)
+		{
+			cout << "Vous avez remporter votre première conquête." << endl;
+		}
+		cout << "depart du combat" << endl << endl;
+	}
+
+}
+
+void Boucle4(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1, Enemy& e2, Enemy& e3) {
+	if (chosen_way == 1) { // si le joueur choisit la première zone 
+		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+
+		e1.setSeduction(150);
+		e1.setRateau(30);
+
+
+		//Boucle de Combat
+		srand(time(NULL));
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() + e2.getSeduction() + e3.getSeduction() > 0) {
+
+			attackBourrin(b1, e1, e2, e3);
+
+			attackRomantique(r1, e1, e2, e3);
+
+			attackBeauf(bof1, e1, e2, e3);
+
+			cout << "FIN DE TOUR JOUEUR" << endl << endl;
+
+			attackenemy(b1, r1, bof1, e1);
+			attackenemy(b1, r1, bof1, e2);
+			attackenemy(b1, r1, bof1, e3);
+
+			cout << endl << "FIN DE TOUR ENEMIE" << endl << endl;
+
+		}
+
+		if (b1.getHealth() + r1.getHealth() + bof1.getHealth() == 0)
+		{
+			cout << "Le groupe de fille que vous avez rencontrer, vous à laisser sur le carreaux! Vos egos viennent de prendre un coup." << endl;
+		}
+
+		if (e1.getSeduction() + e2.getSeduction() + e3.getSeduction() == 0)
+		{
+			cout << "Vous avez remporter votre première conquête." << endl;
+		}
+		cout << "depart du combat" << endl << endl;
+	}
+	if (chosen_way == 2) { // si le joueur choisit la deuxième zone 
+		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+
+		//Boucle de Combat
+		srand(time(NULL));
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() + e2.getSeduction() + e3.getSeduction() > 0) {
+
+			attackBourrin(b1, e1, e2, e3);
+
+			attackRomantique(r1, e1, e2, e3);
+
+			attackBeauf(bof1, e1, e2, e3);
+
+			cout << "FIN DE TOUR JOUEUR" << endl << endl;
+
+			attackenemy(b1, r1, bof1, e1);
+			attackenemy(b1, r1, bof1, e2);
+			attackenemy(b1, r1, bof1, e3);
+
+			cout << endl << "FIN DE TOUR ENEMIE" << endl << endl;
+
+		}
+
+		if (b1.getHealth() + r1.getHealth() + bof1.getHealth() == 0)
+		{
+			cout << "Le groupe de fille que vous avez rencontrer, vous à laisser sur le carreaux! Vos egos viennent de prendre un coup." << endl;
+		}
+
+		if (e1.getSeduction() + e2.getSeduction() + e3.getSeduction() == 0)
+		{
+			cout << "Vous avez remporter votre première conquête." << endl;
+		}
+		cout << "depart du combat" << endl << endl;
+	}
+	else { // si le joueur choisit la troisième zone 
+		cout << "Vous rencontrez trois jolies humaines" << endl << endl;
+
+		cout << chosen_way << endl;
+		//Boucle de Combat
+		srand(time(NULL));
+		while (b1.getHealth() + r1.getHealth() + bof1.getHealth() > 0 && e1.getSeduction() + e2.getSeduction() + e3.getSeduction() > 0) {
+
+			attackBourrin(b1, e1, e2, e3);
+
+			attackRomantique(r1, e1, e2, e3);
+
+			attackBeauf(bof1, e1, e2, e3);
+
+			cout << "FIN DE TOUR JOUEUR" << endl << endl;
+
+			attackenemy(b1, r1, bof1, e1);
+			attackenemy(b1, r1, bof1, e2);
+			attackenemy(b1, r1, bof1, e3);
+
+			cout << endl << "FIN DE TOUR ENEMIE" << endl << endl;
+
+		}
+
+		if (b1.getHealth() + r1.getHealth() + bof1.getHealth() == 0)
+		{
+			cout << "Le groupe de fille que vous avez rencontrer, vous à laisser sur le carreaux! Vos egos viennent de prendre un coup." << endl;
+		}
+
+		if (e1.getSeduction() + e2.getSeduction() + e3.getSeduction() == 0)
+		{
+			cout << "Vous avez remporter votre première conquête." << endl;
+		}
+		cout << "depart du combat" << endl << endl;
+	}
+
+}
 
 int main() {
 
@@ -1056,17 +1414,6 @@ int main() {
 	Enemy e1("Stefanie", 12, 20, false);//valeur initiale des hp : 110
 	Enemy e2("Gwendoline", 20, 20, false);//valeur initiale des hp : 80
 	Enemy e3("Patricia", 16, 20, false);//valeur initiale des hp : 100
-	Enemy e4("Stefanie", 12, 20, false);
-	Enemy e5("Gwendoline", 20, 20, false);
-	Enemy e6("Patricia", 16, 20, false);
-	Enemy e7("Gwendoline", 20, 20, false);
-	Enemy e8("Patricia", 16, 20, false);
-	Enemy e9("Stefanie", 12, 20, false);
-	Enemy e10("Gwendoline", 20, 20, false);
-	Enemy e11("Patricia", 16, 20, false);
-	Enemy e12("Stefanie", 12, 20, false);
-	Enemy e13("Gwendoline", 20, 20, false);
-	Enemy e14("Patricia", 16, 20, false);
 
 	Personnage p1("Les bras Cassé", 200, 200, 100, false, 5, 0);
 
@@ -1138,12 +1485,13 @@ int main() {
 	vector<Zone> zoneOccupee;
 
 	Choix(p1, zones, zonesPossibles, chosen_way, zoneOccupee);//
-	cout << p1.getPlace() << endl;
-	cout << "test" << zoneOccupee[0].getZoneid() << endl;
 	//BOUCLES DE JEU ---------------------------------------------------
 
-	Boucle1(chosen_way, b1, bof1, r1, e1, e2, e3);
+	//Boucle1(chosen_way, b1, bof1, r1, e1, e2, e3);
 
 	Choix2(p1, zones, zonesPossibles, chosen_way, zoneOccupee);
 
+	Boucle2(chosen_way, b1, bof1, r1, e1, e2, e3);
+	//Choix3(p1, zones, zonesPossibles, chosen_way, zoneOccupee);
+	//Choix4(p1, zones, zonesPossibles, chosen_way, zoneOccupee);
 }
