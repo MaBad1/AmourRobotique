@@ -744,7 +744,7 @@ void Choix(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibl
 	}
 }
 
-void Choix2(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>zoneOccupee) {
+void Choix2(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>&zoneOccupee) {
 	if (personnage.getPlace() == 1) {//si la position du joueur 1 est de 1 (c'est à dire la fin du niveau 1)
 
 		int choixZ = 0; // création/réinitialisation à 0 de la variable de choix de zone
@@ -846,7 +846,7 @@ void Choix2(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossib
 	}
 }
 
-void Choix3(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>zoneOccupee) {
+void Choix3(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>&zoneOccupee) {
 	if (personnage.getPlace() == 2) {//si la position du joueur 1 est de 1 (c'est à dire la fin du niveau 1)
 
 		int choixZ = 0; // création/réinitialisation à 0 de la variable de choix de zone
@@ -920,7 +920,7 @@ void Choix3(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossib
 	}
 }
 
-void choix4(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>zoneOccupee) {
+void choix4(Personnage& personnage, vector<Zone> zones, vector<Zone> zonesPossibles, int& chosen_way, vector<Zone>&zoneOccupee) {
 	if (personnage.getPlace() == 3) {
 		int choixZ = 0; // création/réinitialisation à 0 de la variable de choix de zone
 		int FinChoixZ = 0;// création/réinitialisation à 0 de la variable de fin de choix de zone pour sortir du while plus bas
@@ -1047,8 +1047,6 @@ void Boucle1(int chosen_way, Bourrin& b1, Beauf& bof1, Romantique& r1, Enemy& e1
 	}
 
 }
-
-	
 
 
 int main() {
