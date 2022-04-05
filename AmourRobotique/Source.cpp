@@ -1581,11 +1581,14 @@ int main() {
 	Choix(p1, zones, zonesPossibles, chosen_way, zoneOccupee);//
 	//BOUCLES DE JEU ---------------------------------------------------
 
-	//Boucle1(chosen_way, b1, bof1, r1, e1, e2, e3);
+	Boucle1(chosen_way, b1, bof1, r1, e1, e2, e3);
 
 	Choix2(p1, zones, zonesPossibles, chosen_way, zoneOccupee);
 
 	Boucle2(chosen_way, b1, bof1, r1, e1, e2, e3);
+
+
+	//les choix de niveau 2 et 3 ne fonctionnent pas à cause d'une sortie de tableau quelque part et je n'ai pas réussis à la trouver
 	//Choix3(p1, zones, zonesPossibles, chosen_way, zoneOccupee);
 	//Choix4(p1, zones, zonesPossibles, chosen_way, zoneOccupee);
 }
